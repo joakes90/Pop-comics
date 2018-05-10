@@ -39,13 +39,16 @@ class ComicManager {
         let fileManager = FileManager.default
         let tempDir = fileManager.temporaryDirectory
         let comicDir = tempDir.appendingPathComponent(url.lastPathComponent)
-        var expandedImagePaths: [String]
+        var expandedImagePaths = [String]()
         do {
             try fileManager.createDirectory(at: comicDir,
                                         withIntermediateDirectories: true,
                                         attributes: nil)
             try Zip.unzipFile(url, destination: comicDir, overwrite: true, password: nil)
-            expandedImagePaths = try fileManager.contentsOfDirectory(atPath: comicDir.path).sorted()
+            let fileNames = try fileManager.contentsOfDirectory(atPath: comicDir.path).sorted()
+            fileNames.forEach { (file) in
+                expandedImagePaths.append(comicDir.appendingPathComponent(file).path)
+            }
         } catch {
             print(error.localizedDescription)
             return nil
@@ -53,7 +56,7 @@ class ComicManager {
         var book = Book()
         for path in expandedImagePaths {
             if let image = UIImage(contentsOfFile: path) {
-                book.append(image) //?? //TODO: come up with default could not decode image
+                book.append(image)
             }
         }
         return book
