@@ -9,7 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var testImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +21,12 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func test(_ sender: Any) {
+        let comicURL = Bundle.main.path(forResource: "Amazing Spider-Man Renew Your Vows (2016-) #13", ofType: "cbz")
+        let comicManager = ComicManager()
+        let book = comicManager.openComic(at: comicURL!)
+        testImageView.image = book?.first
+    }
+    
 }
 

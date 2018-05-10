@@ -7,14 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A5F108E5F0C6AF073CBC263 /* Pods_Pop_Comics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A49864D09152285EDA471FB1 /* Pods_Pop_Comics.framework */; };
 		D003B820204F94DA005500AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D003B81F204F94DA005500AD /* AppDelegate.swift */; };
 		D003B822204F94DA005500AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D003B821204F94DA005500AD /* ViewController.swift */; };
 		D003B825204F94DA005500AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D003B823204F94DA005500AD /* Main.storyboard */; };
 		D003B827204F94DA005500AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D003B826204F94DA005500AD /* Assets.xcassets */; };
 		D003B82A204F94DA005500AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D003B828204F94DA005500AD /* LaunchScreen.storyboard */; };
+		D003B837204F9752005500AD /* ComicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D003B836204F9752005500AD /* ComicManager.swift */; };
+		D0DF719E20A3DDED00720267 /* Amazing Spider-Man Renew Your Vows (2016-) #13.cbz in Resources */ = {isa = PBXBuildFile; fileRef = D003B834204F96AE005500AD /* Amazing Spider-Man Renew Your Vows (2016-) #13.cbz */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A55C9603DDF4E4D8100F120 /* Pods-Pop Comics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pop Comics.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pop Comics/Pods-Pop Comics.debug.xcconfig"; sourceTree = "<group>"; };
+		88C301B021AF80F9971AD990 /* Pods-Pop Comics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pop Comics.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pop Comics/Pods-Pop Comics.release.xcconfig"; sourceTree = "<group>"; };
+		A49864D09152285EDA471FB1 /* Pods_Pop_Comics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pop_Comics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D003B81C204F94DA005500AD /* Pop Comics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pop Comics.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D003B81F204F94DA005500AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D003B821204F94DA005500AD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +28,8 @@
 		D003B826204F94DA005500AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D003B829204F94DA005500AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D003B82B204F94DA005500AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D003B834204F96AE005500AD /* Amazing Spider-Man Renew Your Vows (2016-) #13.cbz */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Amazing Spider-Man Renew Your Vows (2016-) #13.cbz"; sourceTree = "<group>"; };
+		D003B836204F9752005500AD /* ComicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A5F108E5F0C6AF073CBC263 /* Pods_Pop_Comics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +49,8 @@
 			children = (
 				D003B81E204F94DA005500AD /* Pop Comics */,
 				D003B81D204F94DA005500AD /* Products */,
+				DFA0C195B3EAF311ED662247 /* Pods */,
+				E88E3409061ED50A799BC7B3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +65,41 @@
 		D003B81E204F94DA005500AD /* Pop Comics */ = {
 			isa = PBXGroup;
 			children = (
+				D003B835204F96E0005500AD /* File Manager */,
 				D003B81F204F94DA005500AD /* AppDelegate.swift */,
 				D003B821204F94DA005500AD /* ViewController.swift */,
 				D003B823204F94DA005500AD /* Main.storyboard */,
 				D003B826204F94DA005500AD /* Assets.xcassets */,
 				D003B828204F94DA005500AD /* LaunchScreen.storyboard */,
+				D003B834204F96AE005500AD /* Amazing Spider-Man Renew Your Vows (2016-) #13.cbz */,
 				D003B82B204F94DA005500AD /* Info.plist */,
 			);
 			path = "Pop Comics";
+			sourceTree = "<group>";
+		};
+		D003B835204F96E0005500AD /* File Manager */ = {
+			isa = PBXGroup;
+			children = (
+				D003B836204F9752005500AD /* ComicManager.swift */,
+			);
+			path = "File Manager";
+			sourceTree = "<group>";
+		};
+		DFA0C195B3EAF311ED662247 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0A55C9603DDF4E4D8100F120 /* Pods-Pop Comics.debug.xcconfig */,
+				88C301B021AF80F9971AD990 /* Pods-Pop Comics.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E88E3409061ED50A799BC7B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A49864D09152285EDA471FB1 /* Pods_Pop_Comics.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +109,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D003B82E204F94DA005500AD /* Build configuration list for PBXNativeTarget "Pop Comics" */;
 			buildPhases = (
+				3D9FC6F15B369CE086B30B1B /* [CP] Check Pods Manifest.lock */,
 				D003B818204F94DA005500AD /* Sources */,
 				D003B819204F94DA005500AD /* Frameworks */,
 				D003B81A204F94DA005500AD /* Resources */,
+				7F84DD5F055A6CE981DB2D6D /* [CP] Embed Pods Frameworks */,
+				D4D08E9DDF7152E9441B94ED /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,6 +164,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0DF719E20A3DDED00720267 /* Amazing Spider-Man Renew Your Vows (2016-) #13.cbz in Resources */,
 				D003B82A204F94DA005500AD /* LaunchScreen.storyboard in Resources */,
 				D003B827204F94DA005500AD /* Assets.xcassets in Resources */,
 				D003B825204F94DA005500AD /* Main.storyboard in Resources */,
@@ -131,6 +173,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3D9FC6F15B369CE086B30B1B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pop Comics-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7F84DD5F055A6CE981DB2D6D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Pop Comics/Pods-Pop Comics-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Zip/Zip.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Zip.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pop Comics/Pods-Pop Comics-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4D08E9DDF7152E9441B94ED /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pop Comics/Pods-Pop Comics-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D003B818204F94DA005500AD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -138,6 +234,7 @@
 			files = (
 				D003B822204F94DA005500AD /* ViewController.swift in Sources */,
 				D003B820204F94DA005500AD /* AppDelegate.swift in Sources */,
+				D003B837204F9752005500AD /* ComicManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +369,7 @@
 		};
 		D003B82F204F94DA005500AD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A55C9603DDF4E4D8100F120 /* Pods-Pop Comics.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -287,6 +385,7 @@
 		};
 		D003B830204F94DA005500AD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88C301B021AF80F9971AD990 /* Pods-Pop Comics.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
