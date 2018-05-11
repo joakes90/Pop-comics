@@ -8,4 +8,5 @@ target 'Pop Comics' do
   # Pods for Pop Comics
   pod 'Zip', '~> 1.1'
   pod "UnrarKit"
+  pod "NVHTarGzip"
 end

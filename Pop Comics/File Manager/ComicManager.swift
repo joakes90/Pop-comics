@@ -6,6 +6,7 @@
 //  Copyright © 2018 Oklasoft LLC. All rights reserved.
 //
 
+import NVHTarGzip
 import UIKit
 import UnrarKit
 import Zip
@@ -20,7 +21,7 @@ enum extensions: String {
 }
 class ComicManager {
     
-     func openComic(at path: String) -> Book? {
+    func openComic(at path: String) -> Book? {
         let url = URL(fileURLWithPath: path)
         guard let ext = extensions(rawValue: url.pathExtension) else {
             return nil
@@ -43,29 +44,54 @@ class ComicManager {
         var expandedImagePaths = [String]()
         do {
             try fileManager.createDirectory(at: comicDir,
-                                        withIntermediateDirectories: true,
-                                        attributes: nil)
+                                            withIntermediateDirectories: true,
+                                            attributes: nil)
             try Zip.unzipFile(url, destination: comicDir, overwrite: true, password: nil)
             let fileNames = try fileManager.contentsOfDirectory(atPath: comicDir.path).sorted()
             fileNames.forEach { (file) in
                 expandedImagePaths.append(comicDir.appendingPathComponent(file).path)
             }
+            var book: Book?
+            for path in expandedImagePaths {
+                if let image = UIImage(contentsOfFile: path) {
+                    if book == nil {book = Book()}
+                    book?.append(image)
+                }
+            }
+            
+            return book
         } catch {
             print(error.localizedDescription)
             return nil
         }
-        var book = Book()
-        for path in expandedImagePaths {
-            if let image = UIImage(contentsOfFile: path) {
-                book.append(image)
-            }
-        }
-        return book
     }
     
     fileprivate func expandCBT(url: URL) -> Book? {
-        //TODO: implement
-        return nil
+        let fileManager = FileManager.default
+        let tempDir = fileManager.temporaryDirectory
+        let comicDir = tempDir.appendingPathComponent(url.lastPathComponent)
+        var expandedImagePaths = [String]()
+        do {
+            try fileManager.createDirectory(at: comicDir,
+                                        withIntermediateDirectories: true,
+                                        attributes: nil)
+            try NVHTarGzip.sharedInstance().unTarFile(atPath: url.path, toPath: comicDir.path)
+            let fileNames = try fileManager.contentsOfDirectory(atPath: comicDir.path).sorted()
+            fileNames.forEach { (file) in
+                expandedImagePaths.append(comicDir.appendingPathComponent(file).path)
+            }
+            var book: Book?
+            for path in expandedImagePaths {
+                if let image = UIImage(contentsOfFile: path) {
+                    if book == nil {book = Book()}
+                    book?.append(image)
+                }
+            }
+            return book
+        } catch {
+            print(error.localizedDescription)
+            return nil
+        }
     }
     
     fileprivate func expandCBR(url: URL) -> Book? {
