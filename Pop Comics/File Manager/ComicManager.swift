@@ -15,9 +15,12 @@ typealias Book = [UIImage]
 enum extensions: String {
     typealias RawValue = String
     
-    case cbr = "cbr"
-    case cbt = "cbt"
-    case cbz = "cbz"
+    case cbr
+    case CBR
+    case cbt
+    case CBT
+    case cbz
+    case CBZ
 }
 class ComicManager {
     
@@ -27,11 +30,11 @@ class ComicManager {
             return nil
         }
         switch ext {
-        case .cbr:
+        case .cbr, .CBR:
             return expandCBR(url: url)
-        case .cbz:
+        case .cbz, .CBZ:
             return expandCBZ(url: url)
-        case .cbt:
+        case .cbt, .CBT:
             return expandCBT(url: url)
         }
     }
@@ -40,7 +43,7 @@ class ComicManager {
     fileprivate func expandCBZ(url: URL) -> Book? {
         let fileManager = FileManager.default
         let tempDir = fileManager.temporaryDirectory
-        let comicDir = tempDir.appendingPathComponent(url.lastPathComponent)
+        let comicDir = tempDir.appendingPathComponent(url.lastPathComponent.lowercased())
         var expandedImagePaths = [String]()
         do {
             try fileManager.createDirectory(at: comicDir,
@@ -69,7 +72,7 @@ class ComicManager {
     fileprivate func expandCBT(url: URL) -> Book? {
         let fileManager = FileManager.default
         let tempDir = fileManager.temporaryDirectory
-        let comicDir = tempDir.appendingPathComponent(url.lastPathComponent)
+        let comicDir = tempDir.appendingPathComponent(url.lastPathComponent.lowercased())
         var expandedImagePaths = [String]()
         do {
             try fileManager.createDirectory(at: comicDir,
