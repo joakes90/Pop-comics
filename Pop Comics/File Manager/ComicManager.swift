@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UnrarKit
 import Zip
 typealias Book = [UIImage]
 
@@ -68,7 +69,21 @@ class ComicManager {
     }
     
     fileprivate func expandCBR(url: URL) -> Book? {
-        //TODO: implement
-        return nil
+        do {
+            var book: Book?
+            let cbrArchive = try URKArchive(url: url)
+            let comicFiles = try cbrArchive.listFilenames().sorted()
+            for file in comicFiles {
+                let fileData = try cbrArchive.extractData(fromFile: file, progress: nil)
+                if let image = UIImage(data: fileData) {
+                    if book == nil {book = Book()}
+                    book?.append(image)
+                }
+            }
+            return book
+        } catch {
+            print(error.localizedDescription)
+            return nil
+        }
     }
 }

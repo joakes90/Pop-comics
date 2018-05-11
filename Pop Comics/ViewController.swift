@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func test(_ sender: Any) {
-        let comicURL = Bundle.main.path(forResource: "Amazing Spider-Man Renew Your Vows (2016-) #13", ofType: "cbz")
+        let comicURL = Bundle.main.path(forResource: "All Star Superman 000", ofType: "cbr")
         let comicManager = ComicManager()
         let book = comicManager.openComic(at: comicURL!)
         testImageView.image = book?.first

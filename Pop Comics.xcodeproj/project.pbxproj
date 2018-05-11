@@ -14,6 +14,7 @@
 		D003B827204F94DA005500AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D003B826204F94DA005500AD /* Assets.xcassets */; };
 		D003B82A204F94DA005500AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D003B828204F94DA005500AD /* LaunchScreen.storyboard */; };
 		D003B837204F9752005500AD /* ComicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D003B836204F9752005500AD /* ComicManager.swift */; };
+		D0D2C92620A519F30080CBED /* All Star Superman 000.cbr in Resources */ = {isa = PBXBuildFile; fileRef = D0D2C92520A519BA0080CBED /* All Star Superman 000.cbr */; };
 		D0DF719E20A3DDED00720267 /* Amazing Spider-Man Renew Your Vows (2016-) #13.cbz in Resources */ = {isa = PBXBuildFile; fileRef = D003B834204F96AE005500AD /* Amazing Spider-Man Renew Your Vows (2016-) #13.cbz */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		D003B82B204F94DA005500AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D003B834204F96AE005500AD /* Amazing Spider-Man Renew Your Vows (2016-) #13.cbz */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Amazing Spider-Man Renew Your Vows (2016-) #13.cbz"; sourceTree = "<group>"; };
 		D003B836204F9752005500AD /* ComicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicManager.swift; sourceTree = "<group>"; };
+		D0D2C92520A519BA0080CBED /* All Star Superman 000.cbr */ = {isa = PBXFileReference; lastKnownFileType = file; path = "All Star Superman 000.cbr"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				D003B826204F94DA005500AD /* Assets.xcassets */,
 				D003B828204F94DA005500AD /* LaunchScreen.storyboard */,
 				D003B834204F96AE005500AD /* Amazing Spider-Man Renew Your Vows (2016-) #13.cbz */,
+				D0D2C92520A519BA0080CBED /* All Star Superman 000.cbr */,
 				D003B82B204F94DA005500AD /* Info.plist */,
 			);
 			path = "Pop Comics";
@@ -164,6 +167,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0D2C92620A519F30080CBED /* All Star Superman 000.cbr in Resources */,
 				D0DF719E20A3DDED00720267 /* Amazing Spider-Man Renew Your Vows (2016-) #13.cbz in Resources */,
 				D003B82A204F94DA005500AD /* LaunchScreen.storyboard in Resources */,
 				D003B827204F94DA005500AD /* Assets.xcassets in Resources */,
@@ -199,10 +203,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Pop Comics/Pods-Pop Comics-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/UnrarKit/UnrarKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Zip/Zip.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UnrarKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Zip.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
