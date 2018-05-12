@@ -16,6 +16,7 @@
 		D003B837204F9752005500AD /* ComicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D003B836204F9752005500AD /* ComicManager.swift */; };
 		D0D2C92620A519F30080CBED /* All Star Superman 000.cbr in Resources */ = {isa = PBXBuildFile; fileRef = D0D2C92520A519BA0080CBED /* All Star Superman 000.cbr */; };
 		D0D4364720A5326600A18713 /* alias.CBT in Resources */ = {isa = PBXBuildFile; fileRef = D0D4364520A52FB700A18713 /* alias.CBT */; };
+		D0D4364B20A68D4600A18713 /* Alias 002 (2001) (FBScan) - Unknown.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D0D4364A20A68D4600A18713 /* Alias 002 (2001) (FBScan) - Unknown.pdf */; };
 		D0DF719E20A3DDED00720267 /* Amazing Spider-Man Renew Your Vows (2016-) #13.cbz in Resources */ = {isa = PBXBuildFile; fileRef = D003B834204F96AE005500AD /* Amazing Spider-Man Renew Your Vows (2016-) #13.cbz */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		D003B836204F9752005500AD /* ComicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicManager.swift; sourceTree = "<group>"; };
 		D0D2C92520A519BA0080CBED /* All Star Superman 000.cbr */ = {isa = PBXFileReference; lastKnownFileType = file; path = "All Star Superman 000.cbr"; sourceTree = "<group>"; };
 		D0D4364520A52FB700A18713 /* alias.CBT */ = {isa = PBXFileReference; lastKnownFileType = file; path = alias.CBT; sourceTree = "<group>"; };
+		D0D4364A20A68D4600A18713 /* Alias 002 (2001) (FBScan) - Unknown.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Alias 002 (2001) (FBScan) - Unknown.pdf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				D003B828204F94DA005500AD /* LaunchScreen.storyboard */,
 				D003B834204F96AE005500AD /* Amazing Spider-Man Renew Your Vows (2016-) #13.cbz */,
 				D0D4364520A52FB700A18713 /* alias.CBT */,
+				D0D4364A20A68D4600A18713 /* Alias 002 (2001) (FBScan) - Unknown.pdf */,
 				D0D2C92520A519BA0080CBED /* All Star Superman 000.cbr */,
 				D003B82B204F94DA005500AD /* Info.plist */,
 			);
@@ -171,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0D4364720A5326600A18713 /* alias.CBT in Resources */,
+				D0D4364B20A68D4600A18713 /* Alias 002 (2001) (FBScan) - Unknown.pdf in Resources */,
 				D0D2C92620A519F30080CBED /* All Star Superman 000.cbr in Resources */,
 				D0DF719E20A3DDED00720267 /* Amazing Spider-Man Renew Your Vows (2016-) #13.cbz in Resources */,
 				D003B82A204F94DA005500AD /* LaunchScreen.storyboard in Resources */,

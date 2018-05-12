@@ -129,7 +129,7 @@ class ComicManager {
             }
             // converting the pages
             var book: Book?
-            for i in 0..<pdf.numberOfPages {
+            for i in 1...pdf.numberOfPages {
                 guard let page = pdf.page(at: i) else {
                     break
                 }
