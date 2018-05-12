@@ -21,6 +21,8 @@ enum extensions: String {
     case CBT
     case cbz
     case CBZ
+    case pdf
+    case PDF
 }
 class ComicManager {
     
@@ -36,6 +38,8 @@ class ComicManager {
             return expandCBZ(url: url)
         case .cbt, .CBT:
             return expandCBT(url: url)
+        case .pdf, .PDF:
+            return  expandPDF(url: url)
         }
     }
     
@@ -108,6 +112,43 @@ class ComicManager {
                     if book == nil {book = Book()}
                     book?.append(image)
                 }
+            }
+            return book
+        } catch {
+            print(error.localizedDescription)
+            return nil
+        }
+    }
+    
+    fileprivate func expandPDF(url: URL) -> Book? {
+        do {
+            let data = try Data(contentsOf: url) as CFData
+            guard let provider = CGDataProvider(data: data),
+            let pdf = CGPDFDocument(provider) else {
+                return nil
+            }
+            // converting the pages
+            var book: Book?
+            for i in 0..<pdf.numberOfPages {
+                guard let page = pdf.page(at: i) else {
+                    break
+                }
+                let pageSize = page.getBoxRect(.mediaBox).size 
+                UIGraphicsBeginImageContext(pageSize)
+                let context = UIGraphicsGetCurrentContext()!
+                context.saveGState()
+                context.translateBy(x: 0.0, y: pageSize.height)
+                context.scaleBy(x: 1.0, y: -1.0)
+                context.concatenate(page.getDrawingTransform(.mediaBox,
+                                                             rect: page.getBoxRect(.mediaBox),
+                                                             rotate: 0, preserveAspectRatio: true))
+                context.drawPDFPage(page)
+                context.restoreGState()
+                if let image = UIGraphicsGetImageFromCurrentImageContext() {
+                    if book == nil {book = Book()}
+                    book?.append(image)
+                }
+                UIGraphicsEndImageContext()
             }
             return book
         } catch {
