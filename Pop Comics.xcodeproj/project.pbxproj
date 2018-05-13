@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		8A5F108E5F0C6AF073CBC263 /* Pods_Pop_Comics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A49864D09152285EDA471FB1 /* Pods_Pop_Comics.framework */; };
 		D003B820204F94DA005500AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D003B81F204F94DA005500AD /* AppDelegate.swift */; };
-		D003B822204F94DA005500AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D003B821204F94DA005500AD /* ViewController.swift */; };
 		D003B825204F94DA005500AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D003B823204F94DA005500AD /* Main.storyboard */; };
 		D003B827204F94DA005500AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D003B826204F94DA005500AD /* Assets.xcassets */; };
 		D003B82A204F94DA005500AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D003B828204F94DA005500AD /* LaunchScreen.storyboard */; };
 		D003B837204F9752005500AD /* ComicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D003B836204F9752005500AD /* ComicManager.swift */; };
+		D0D4364D20A7E2DD00A18713 /* ComicDirectoryViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D4364C20A7E2DD00A18713 /* ComicDirectoryViewControllerTableViewController.swift */; };
+		D0D4364F20A7E40A00A18713 /* FileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D4364E20A7E40A00A18713 /* FileController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,12 +23,13 @@
 		A49864D09152285EDA471FB1 /* Pods_Pop_Comics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pop_Comics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D003B81C204F94DA005500AD /* Pop Comics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pop Comics.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D003B81F204F94DA005500AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D003B821204F94DA005500AD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D003B824204F94DA005500AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D003B826204F94DA005500AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D003B829204F94DA005500AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D003B82B204F94DA005500AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D003B836204F9752005500AD /* ComicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicManager.swift; sourceTree = "<group>"; };
+		D0D4364C20A7E2DD00A18713 /* ComicDirectoryViewControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDirectoryViewControllerTableViewController.swift; sourceTree = "<group>"; };
+		D0D4364E20A7E40A00A18713 /* FileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,11 +67,11 @@
 			children = (
 				D003B835204F96E0005500AD /* File Manager */,
 				D003B81F204F94DA005500AD /* AppDelegate.swift */,
-				D003B821204F94DA005500AD /* ViewController.swift */,
 				D003B823204F94DA005500AD /* Main.storyboard */,
 				D003B826204F94DA005500AD /* Assets.xcassets */,
 				D003B828204F94DA005500AD /* LaunchScreen.storyboard */,
 				D003B82B204F94DA005500AD /* Info.plist */,
+				D0D4364C20A7E2DD00A18713 /* ComicDirectoryViewControllerTableViewController.swift */,
 			);
 			path = "Pop Comics";
 			sourceTree = "<group>";
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				D003B836204F9752005500AD /* ComicManager.swift */,
+				D0D4364E20A7E40A00A18713 /* FileController.swift */,
 			);
 			path = "File Manager";
 			sourceTree = "<group>";
@@ -232,9 +235,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D003B822204F94DA005500AD /* ViewController.swift in Sources */,
 				D003B820204F94DA005500AD /* AppDelegate.swift in Sources */,
+				D0D4364D20A7E2DD00A18713 /* ComicDirectoryViewControllerTableViewController.swift in Sources */,
 				D003B837204F9752005500AD /* ComicManager.swift in Sources */,
+				D0D4364F20A7E40A00A18713 /* FileController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
