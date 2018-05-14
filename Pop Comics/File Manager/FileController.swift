@@ -27,10 +27,12 @@ class FileController {
                                                                    options: .skipsHiddenFiles)
                 var comicPaths = [ComicPath]()
                 contents.forEach { (url) in
-                    let comicPath = ComicPath(name: url.lastPathComponent,
-                                              path: url,
-                                              isDirectory: fileIsDirectory(url: url))
-                    comicPaths.append(comicPath)
+                    let isDirectory = fileIsDirectory(url: url)
+                    if isDirectory || fileIsComic(url: url) {
+                        comicPaths.append(ComicPath(name: (url.lastPathComponent as NSString).deletingPathExtension,
+                                                    path: url,
+                                                    isDirectory: isDirectory))
+                    }
                 }
                 paths = comicPaths
                 return comicPaths
@@ -50,6 +52,15 @@ class FileController {
         return isDirectory.boolValue
         
     }
+    
+    fileprivate func fileIsComic(url: URL) -> Bool {
+            let fileExtension = url.pathExtension
+        if extensions(rawValue: fileExtension) != nil {
+            return true
+        }
+        return false
+    }
+    
 }
 
 struct ComicPath {
