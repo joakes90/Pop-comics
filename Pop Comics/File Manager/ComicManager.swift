@@ -167,7 +167,16 @@ extension ComicManager {
         
     }
     
-    private func createMetadataForFile(at url: URL) {
+    private func createMetadataForFile(at url: URL, completion: (_ : Metadata) -> Void) {
+        let comic = self.openComic(at: url.path)
+        let cover = UIImagePNGRepresentation((comic?.first) ?? /*Default image here*/)
         let context = CDStack.sharedInstance().managedObjectContext
+        let entityDiscription = NSEntityDescription.entity(forEntityName: "Metadata",
+                                                           in: context!)
+        let metadataObject = NSManagedObject(entity: entityDiscription!, insertInto: context) as! Metadata
+        metadataObject.setValue(url.path, forKey: "filePath")
+        metadataObject.setValue(false, forKey: "read")
+        metadataObject.setValue(cover, forKey: "coverImage")
+        completion(metadataObject)
     }
 }
