@@ -159,17 +159,29 @@ class ComicManager {
 }
 
 extension ComicManager {
-    func metadataSync() {
-        
+    
+    func metadataForFile(at url:URL, completion: @escaping (_ : Metadata?) -> Void) {
+        let path = url.path
+        let context = CDStack.sharedInstance().managedObjectContext
+        let predicate = NSPredicate(format: "filePath = %@", path)
+        let fetchRequest = NSFetchRequest<Metadata>(entityName: "Metadata")
+        fetchRequest.predicate = predicate
+        do {
+            let metadata = try context?.fetch(fetchRequest)
+            DispatchQueue.main.async {
+                completion(metadata?.first)
+            }
+        } catch {
+            print(error.localizedDescription)
+            DispatchQueue.main.async {
+                completion(nil)
+            }
+        }
     }
     
-    func metadataForFile(at url:URL) {
-        
-    }
-    
-    private func createMetadataForFile(at url: URL, completion: (_ : Metadata) -> Void) {
+    private func createMetadataForFile(at url: URL, completion: @escaping (_ : Metadata) -> Void) {
         let comic = self.openComic(at: url.path)
-        let cover = UIImagePNGRepresentation((comic?.first) ?? /*Default image here*/)
+        let cover = UIImagePNGRepresentation((comic?.first) ?? #imageLiteral(resourceName: "genaricComic"))
         let context = CDStack.sharedInstance().managedObjectContext
         let entityDiscription = NSEntityDescription.entity(forEntityName: "Metadata",
                                                            in: context!)
@@ -177,6 +189,8 @@ extension ComicManager {
         metadataObject.setValue(url.path, forKey: "filePath")
         metadataObject.setValue(false, forKey: "read")
         metadataObject.setValue(cover, forKey: "coverImage")
-        completion(metadataObject)
+        DispatchQueue.main.async {
+            completion(metadataObject)
+        }
     }
 }
