@@ -9,19 +9,19 @@
 
 #import "CDStack.h"
 
-@interface Stack ()
+@interface CDStack ()
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @end
 
-@implementation Stack
+@implementation CDStack
 
-+ (Stack *)sharedInstance {
-    static Stack *sharedInstance = nil;
++ (CDStack *)sharedInstance {
+    static CDStack *sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedInstance = [[Stack alloc] init];
+        sharedInstance = [[CDStack alloc] init];
     });
     return sharedInstance;
     

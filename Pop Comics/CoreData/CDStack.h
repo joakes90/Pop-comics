@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 @import CoreData;
 
-@interface Stack : NSObject
+@interface CDStack : NSObject
 
-+ (Stack *)sharedInstance;
++ (CDStack *)sharedInstance;
 
 @property (nonatomic, strong, readonly) NSManagedObjectContext *managedObjectContext;
 

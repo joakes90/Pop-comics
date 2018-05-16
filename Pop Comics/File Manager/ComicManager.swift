@@ -157,3 +157,17 @@ class ComicManager {
         }
     }
 }
+
+extension ComicManager {
+    func metadataSync() {
+        
+    }
+    
+    func metadataForFile(at url:URL) {
+        
+    }
+    
+    private func createMetadataForFile(at url: URL) {
+        let context = CDStack.sharedInstance().managedObjectContext
+    }
+}

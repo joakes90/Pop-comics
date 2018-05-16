@@ -39,6 +39,7 @@
 		D0BB908420ABAEEB00590A93 /* Metadata+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "Metadata+CoreDataProperties.m"; path = "/Users/justin/Development/Apple/Pop Comics/Pop Comics/File Manager/Metadata+CoreDataProperties.m"; sourceTree = "<absolute>"; };
 		D0BB908820ABB1A100590A93 /* CDStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDStack.h; sourceTree = "<group>"; };
 		D0BB908920ABB1F200590A93 /* CDStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDStack.m; sourceTree = "<group>"; };
+		D0BB908D20ABB4F100590A93 /* Pop-Comics-BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pop-Comics-BridgingHeader.h"; sourceTree = "<group>"; };
 		D0D4364C20A7E2DD00A18713 /* ComicDirectoryViewControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDirectoryViewControllerTableViewController.swift; sourceTree = "<group>"; };
 		D0D4364E20A7E40A00A18713 /* FileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,13 +79,14 @@
 			children = (
 				D0BB908720ABB15700590A93 /* CoreData */,
 				D003B835204F96E0005500AD /* File Manager */,
+				D0BB908C20ABB4C400590A93 /* Views */,
 				D003B81F204F94DA005500AD /* AppDelegate.swift */,
 				D003B823204F94DA005500AD /* Main.storyboard */,
 				D003B826204F94DA005500AD /* Assets.xcassets */,
 				D003B828204F94DA005500AD /* LaunchScreen.storyboard */,
 				D003B82B204F94DA005500AD /* Info.plist */,
+				D0BB908D20ABB4F100590A93 /* Pop-Comics-BridgingHeader.h */,
 				D0BB907220ABAD5E00590A93 /* Metadata.xcdatamodeld */,
-				D0D4364C20A7E2DD00A18713 /* ComicDirectoryViewControllerTableViewController.swift */,
 			);
 			path = "Pop Comics";
 			sourceTree = "<group>";
@@ -109,6 +111,14 @@
 				D0BB908920ABB1F200590A93 /* CDStack.m */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		D0BB908C20ABB4C400590A93 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D0D4364C20A7E2DD00A18713 /* ComicDirectoryViewControllerTableViewController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		DFA0C195B3EAF311ED662247 /* Pods */ = {
@@ -412,6 +422,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.oakes.Pop-Comics";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Pop Comics/Pop-Comics-BridgingHeader.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -428,6 +439,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.oakes.Pop-Comics";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Pop Comics/Pop-Comics-BridgingHeader.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
