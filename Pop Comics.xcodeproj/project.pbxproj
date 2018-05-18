@@ -14,8 +14,6 @@
 		D003B82A204F94DA005500AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D003B828204F94DA005500AD /* LaunchScreen.storyboard */; };
 		D003B837204F9752005500AD /* ComicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D003B836204F9752005500AD /* ComicManager.swift */; };
 		D0BB907420ABAD5E00590A93 /* Metadata.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0BB907220ABAD5E00590A93 /* Metadata.xcdatamodeld */; };
-		D0BB908520ABAEEB00590A93 /* Metadata+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BB908220ABAEEB00590A93 /* Metadata+CoreDataClass.m */; };
-		D0BB908620ABAEEB00590A93 /* Metadata+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BB908420ABAEEB00590A93 /* Metadata+CoreDataProperties.m */; };
 		D0BB908A20ABB1F200590A93 /* CDStack.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BB908920ABB1F200590A93 /* CDStack.m */; };
 		D0BB908F20ABC9CE00590A93 /* ComicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BB908E20ABC9CE00590A93 /* ComicCollectionViewCell.swift */; };
 		D0D4364D20A7E2DD00A18713 /* ComicDirectoryViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D4364C20A7E2DD00A18713 /* ComicDirectoryViewControllerTableViewController.swift */; };
@@ -34,10 +32,6 @@
 		D003B82B204F94DA005500AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D003B836204F9752005500AD /* ComicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicManager.swift; sourceTree = "<group>"; };
 		D0BB907320ABAD5E00590A93 /* Metadata.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Metadata.xcdatamodel; sourceTree = "<group>"; };
-		D0BB908120ABAEEB00590A93 /* Metadata+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Metadata+CoreDataClass.h"; path = "/Users/justin/Development/Apple/Pop Comics/Pop Comics/File Manager/Metadata+CoreDataClass.h"; sourceTree = "<absolute>"; };
-		D0BB908220ABAEEB00590A93 /* Metadata+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "Metadata+CoreDataClass.m"; path = "/Users/justin/Development/Apple/Pop Comics/Pop Comics/File Manager/Metadata+CoreDataClass.m"; sourceTree = "<absolute>"; };
-		D0BB908320ABAEEB00590A93 /* Metadata+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Metadata+CoreDataProperties.h"; path = "/Users/justin/Development/Apple/Pop Comics/Pop Comics/File Manager/Metadata+CoreDataProperties.h"; sourceTree = "<absolute>"; };
-		D0BB908420ABAEEB00590A93 /* Metadata+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "Metadata+CoreDataProperties.m"; path = "/Users/justin/Development/Apple/Pop Comics/Pop Comics/File Manager/Metadata+CoreDataProperties.m"; sourceTree = "<absolute>"; };
 		D0BB908820ABB1A100590A93 /* CDStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDStack.h; sourceTree = "<group>"; };
 		D0BB908920ABB1F200590A93 /* CDStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDStack.m; sourceTree = "<group>"; };
 		D0BB908D20ABB4F100590A93 /* Pop-Comics-BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pop-Comics-BridgingHeader.h"; sourceTree = "<group>"; };
@@ -105,10 +99,6 @@
 		D0BB908720ABB15700590A93 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				D0BB908320ABAEEB00590A93 /* Metadata+CoreDataProperties.h */,
-				D0BB908420ABAEEB00590A93 /* Metadata+CoreDataProperties.m */,
-				D0BB908120ABAEEB00590A93 /* Metadata+CoreDataClass.h */,
-				D0BB908220ABAEEB00590A93 /* Metadata+CoreDataClass.m */,
 				D0BB908820ABB1A100590A93 /* CDStack.h */,
 				D0BB908920ABB1F200590A93 /* CDStack.m */,
 			);
@@ -275,10 +265,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0BB908F20ABC9CE00590A93 /* ComicCollectionViewCell.swift in Sources */,
-				D0BB908520ABAEEB00590A93 /* Metadata+CoreDataClass.m in Sources */,
 				D0BB908A20ABB1F200590A93 /* CDStack.m in Sources */,
 				D003B820204F94DA005500AD /* AppDelegate.swift in Sources */,
-				D0BB908620ABAEEB00590A93 /* Metadata+CoreDataProperties.m in Sources */,
 				D0D4364D20A7E2DD00A18713 /* ComicDirectoryViewControllerTableViewController.swift in Sources */,
 				D003B837204F9752005500AD /* ComicManager.swift in Sources */,
 				D0BB907420ABAD5E00590A93 /* Metadata.xcdatamodeld in Sources */,

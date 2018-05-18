@@ -160,10 +160,13 @@ class ComicManager {
 
 extension ComicManager {
     
-    func metadataForFile(at url:URL, completion: @escaping (_ : Metadata?) -> Void) {
-        let path = url.path
+    func metadataForFile(comic: ComicPath, completion: @escaping (_ : Metadata?) -> Void) {
+        guard let uuid = comic.UUID else {
+            completion(nil)
+            return
+        }
         let context = CDStack.sharedInstance().managedObjectContext
-        let predicate = NSPredicate(format: "filePath = %@", path)
+        let predicate = NSPredicate(format: "uuid = %@", uuid)
         let fetchRequest = NSFetchRequest<Metadata>(entityName: "Metadata")
         fetchRequest.predicate = predicate
         do {
@@ -179,18 +182,20 @@ extension ComicManager {
         }
     }
     
-    private func createMetadataForFile(at url: URL, completion: @escaping (_ : Metadata) -> Void) {
-        let comic = self.openComic(at: url.path)
-        let cover = UIImagePNGRepresentation((comic?.first) ?? #imageLiteral(resourceName: "genaricComic"))
+    func createMetadata(for comic: ComicPath, completion: @escaping (_ : Metadata) -> Void) {
+        let images = self.openComic(at: comic.url.path)
+        let cover = UIImagePNGRepresentation((images?.first) ?? #imageLiteral(resourceName: "genaricComic"))
         let context = CDStack.sharedInstance().managedObjectContext
         let entityDiscription = NSEntityDescription.entity(forEntityName: "Metadata",
                                                            in: context!)
         let metadataObject = NSManagedObject(entity: entityDiscription!, insertInto: context) as! Metadata
-        metadataObject.setValue(url.path, forKey: "filePath")
+        metadataObject.setValue(comic.UUID, forKey: "uuid")
         metadataObject.setValue(false, forKey: "read")
         metadataObject.setValue(cover, forKey: "coverImage")
-        DispatchQueue.main.async {
+        do { try context?.save()
+            print("save success")
+        } catch { print("fail")}
             completion(metadataObject)
-        }
+        
     }
 }

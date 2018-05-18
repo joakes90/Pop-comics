@@ -12,7 +12,18 @@ class ComicDirectoryViewControllerTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let manager = ComicManager()
+        let books = FileController.shared.retreaveComicPaths()
+//        manager.createMetadata(for: books.last!) { (md) in
+//            print(md)
+//        }
+        manager.metadataForFile(comic: books.last!) { (md) in
+            guard let metadata = md else {
+                print("fail")
+                return
+            }
+            print(metadata.uuid)
+        }
     }
 
 

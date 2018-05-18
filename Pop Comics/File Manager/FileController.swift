@@ -30,8 +30,9 @@ class FileController {
                     let isDirectory = fileIsDirectory(url: url)
                     if isDirectory || fileIsComic(url: url) {
                         comicPaths.append(ComicPath(name: (url.lastPathComponent as NSString).deletingPathExtension,
-                                                    path: url,
-                                                    isDirectory: isDirectory))
+                                                    url: url,
+                                                    isDirectory: isDirectory,
+                                                    UUID: UUIDforFile(file: url)))
                     }
                 }
                 paths = comicPaths
@@ -43,6 +44,17 @@ class FileController {
             }
         }
         return paths
+    }
+    
+    func UUIDforFile(file: URL) -> String? {
+        let fileManager = FileManager.default
+        do {
+            let attributes = try fileManager.attributesOfItem(atPath: file.path)
+            return String(attributes[.systemFileNumber] as? Int ?? -1)
+        } catch {
+            print(error.localizedDescription)
+            return nil
+        }
     }
     
     fileprivate func fileIsDirectory(url: URL) -> Bool {
@@ -65,6 +77,7 @@ class FileController {
 
 struct ComicPath {
     let name: String
-    let path: URL
+    let url: URL
     let isDirectory: Bool
+    let UUID: String?
 }
