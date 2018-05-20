@@ -15,6 +15,7 @@
 		D003B837204F9752005500AD /* ComicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D003B836204F9752005500AD /* ComicManager.swift */; };
 		D061F52C20B10F5200A54BCB /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D061F52B20B10F5200A54BCB /* AppearanceManager.swift */; };
 		D061F52F20B110D000A54BCB /* BADABB.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D061F52E20B110A300A54BCB /* BADABB.TTF */; };
+		D061F53120B11CB200A54BCB /* Comic Panels.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D061F53020B1168C00A54BCB /* Comic Panels.ttf */; };
 		D0BB907420ABAD5E00590A93 /* Metadata.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0BB907220ABAD5E00590A93 /* Metadata.xcdatamodeld */; };
 		D0BB908A20ABB1F200590A93 /* CDStack.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BB908920ABB1F200590A93 /* CDStack.m */; };
 		D0BB908F20ABC9CE00590A93 /* ComicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BB908E20ABC9CE00590A93 /* ComicCollectionViewCell.swift */; };
@@ -35,6 +36,7 @@
 		D003B836204F9752005500AD /* ComicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicManager.swift; sourceTree = "<group>"; };
 		D061F52B20B10F5200A54BCB /* AppearanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceManager.swift; sourceTree = "<group>"; };
 		D061F52E20B110A300A54BCB /* BADABB.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = BADABB.TTF; sourceTree = "<group>"; };
+		D061F53020B1168C00A54BCB /* Comic Panels.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comic Panels.ttf"; sourceTree = "<group>"; };
 		D0BB907320ABAD5E00590A93 /* Metadata.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Metadata.xcdatamodel; sourceTree = "<group>"; };
 		D0BB908820ABB1A100590A93 /* CDStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDStack.h; sourceTree = "<group>"; };
 		D0BB908920ABB1F200590A93 /* CDStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDStack.m; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 		D061F52D20B1107A00A54BCB /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				D061F53020B1168C00A54BCB /* Comic Panels.ttf */,
 				D061F52E20B110A300A54BCB /* BADABB.TTF */,
 			);
 			path = Fonts;
@@ -215,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D061F53120B11CB200A54BCB /* Comic Panels.ttf in Resources */,
 				D061F52F20B110D000A54BCB /* BADABB.TTF in Resources */,
 				D003B82A204F94DA005500AD /* LaunchScreen.storyboard in Resources */,
 				D003B827204F94DA005500AD /* Assets.xcassets in Resources */,

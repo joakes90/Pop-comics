@@ -4,6 +4,7 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Comic Panels.ttf</string>
 		<string>BADABB.TTF</string>
 	</array>
 	<key>UIFileSharingEnabled</key>

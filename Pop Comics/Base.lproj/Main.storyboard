@@ -64,7 +64,7 @@
             </objects>
             <point key="canvasLocation" x="162.40000000000001" y="264.91754122938534"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Pop Comics-->
         <scene sceneID="Qxz-vr-qNr">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="een-tX-Nk5" customClass="ComicDirectoryViewControllerTableViewController" customModule="Pop_Comics" customModuleProvider="target" sceneMemberID="viewController">
@@ -87,7 +87,7 @@
                             <outlet property="delegate" destination="een-tX-Nk5" id="M2i-Ym-SAg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="V6E-aA-6WB"/>
+                    <navigationItem key="navigationItem" title="Pop Comics" id="V6E-aA-6WB"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xel-nO-4Kw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

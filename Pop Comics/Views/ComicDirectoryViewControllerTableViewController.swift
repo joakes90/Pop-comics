@@ -12,18 +12,6 @@ class ComicDirectoryViewControllerTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let manager = ComicManager()
-        let books = FileController.shared.retreaveComicPaths()
-//        manager.createMetadata(for: books.last!) { (md) in
-//            print(md)
-//        }
-        manager.metadataForFile(comic: books.last!) { (md) in
-            guard let metadata = md else {
-                print("fail")
-                return
-            }
-            print(metadata.uuid)
-        }
     }
 
 
@@ -42,7 +30,7 @@ class ComicDirectoryViewControllerTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: tableViewCellIdentifers.comicPathIdentifier.rawValue, for: indexPath)
         let comicPath = FileController.shared.retreaveComicPaths()[indexPath.row]
         cell.textLabel?.text = comicPath.name
-
+        cell.textLabel?.font = UIFont(name: "Comic Panels", size: 14) ?? UIFont.systemFont(ofSize: 14)
         return cell
     }
 

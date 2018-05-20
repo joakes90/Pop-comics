@@ -36,14 +36,14 @@ class FileController {
                     }
                 }
                 paths = comicPaths
-                return comicPaths
+                return comicPaths.sorted(by: { $0.name < $1.name })
             } catch {
                 print(error.localizedDescription)
                 paths = [ComicPath]()
                 return [ComicPath]()
             }
         }
-        return paths
+        return paths.sorted(by: { $0.name < $1.name })
     }
     
     func UUIDforFile(file: URL) -> String? {
