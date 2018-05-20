@@ -13,6 +13,8 @@
 		D003B827204F94DA005500AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D003B826204F94DA005500AD /* Assets.xcassets */; };
 		D003B82A204F94DA005500AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D003B828204F94DA005500AD /* LaunchScreen.storyboard */; };
 		D003B837204F9752005500AD /* ComicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D003B836204F9752005500AD /* ComicManager.swift */; };
+		D061F52C20B10F5200A54BCB /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D061F52B20B10F5200A54BCB /* AppearanceManager.swift */; };
+		D061F52F20B110D000A54BCB /* BADABB.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D061F52E20B110A300A54BCB /* BADABB.TTF */; };
 		D0BB907420ABAD5E00590A93 /* Metadata.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0BB907220ABAD5E00590A93 /* Metadata.xcdatamodeld */; };
 		D0BB908A20ABB1F200590A93 /* CDStack.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BB908920ABB1F200590A93 /* CDStack.m */; };
 		D0BB908F20ABC9CE00590A93 /* ComicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BB908E20ABC9CE00590A93 /* ComicCollectionViewCell.swift */; };
@@ -31,6 +33,8 @@
 		D003B829204F94DA005500AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D003B82B204F94DA005500AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D003B836204F9752005500AD /* ComicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicManager.swift; sourceTree = "<group>"; };
+		D061F52B20B10F5200A54BCB /* AppearanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceManager.swift; sourceTree = "<group>"; };
+		D061F52E20B110A300A54BCB /* BADABB.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = BADABB.TTF; sourceTree = "<group>"; };
 		D0BB907320ABAD5E00590A93 /* Metadata.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Metadata.xcdatamodel; sourceTree = "<group>"; };
 		D0BB908820ABB1A100590A93 /* CDStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDStack.h; sourceTree = "<group>"; };
 		D0BB908920ABB1F200590A93 /* CDStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDStack.m; sourceTree = "<group>"; };
@@ -73,6 +77,8 @@
 		D003B81E204F94DA005500AD /* Pop Comics */ = {
 			isa = PBXGroup;
 			children = (
+				D061F52D20B1107A00A54BCB /* Fonts */,
+				D061F52A20B10F3400A54BCB /* Appearance */,
 				D0BB908720ABB15700590A93 /* CoreData */,
 				D003B835204F96E0005500AD /* File Manager */,
 				D0BB908C20ABB4C400590A93 /* Views */,
@@ -94,6 +100,22 @@
 				D0D4364E20A7E40A00A18713 /* FileController.swift */,
 			);
 			path = "File Manager";
+			sourceTree = "<group>";
+		};
+		D061F52A20B10F3400A54BCB /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				D061F52B20B10F5200A54BCB /* AppearanceManager.swift */,
+			);
+			path = Appearance;
+			sourceTree = "<group>";
+		};
+		D061F52D20B1107A00A54BCB /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D061F52E20B110A300A54BCB /* BADABB.TTF */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		D0BB908720ABB15700590A93 /* CoreData */ = {
@@ -193,6 +215,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D061F52F20B110D000A54BCB /* BADABB.TTF in Resources */,
 				D003B82A204F94DA005500AD /* LaunchScreen.storyboard in Resources */,
 				D003B827204F94DA005500AD /* Assets.xcassets in Resources */,
 				D003B825204F94DA005500AD /* Main.storyboard in Resources */,
@@ -269,6 +292,7 @@
 				D003B820204F94DA005500AD /* AppDelegate.swift in Sources */,
 				D0D4364D20A7E2DD00A18713 /* ComicDirectoryViewControllerTableViewController.swift in Sources */,
 				D003B837204F9752005500AD /* ComicManager.swift in Sources */,
+				D061F52C20B10F5200A54BCB /* AppearanceManager.swift in Sources */,
 				D0BB907420ABAD5E00590A93 /* Metadata.xcdatamodeld in Sources */,
 				D0D4364F20A7E40A00A18713 /* FileController.swift in Sources */,
 			);
