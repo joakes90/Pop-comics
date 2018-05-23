@@ -13,6 +13,7 @@
 		D003B827204F94DA005500AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D003B826204F94DA005500AD /* Assets.xcassets */; };
 		D003B82A204F94DA005500AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D003B828204F94DA005500AD /* LaunchScreen.storyboard */; };
 		D003B837204F9752005500AD /* ComicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D003B836204F9752005500AD /* ComicManager.swift */; };
+		D03D790B20B4ED7A00C5EDF1 /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03D790A20B4ED7A00C5EDF1 /* BrowserViewController.swift */; };
 		D061F52C20B10F5200A54BCB /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D061F52B20B10F5200A54BCB /* AppearanceManager.swift */; };
 		D061F52F20B110D000A54BCB /* BADABB.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D061F52E20B110A300A54BCB /* BADABB.TTF */; };
 		D061F53120B11CB200A54BCB /* Comic Panels.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D061F53020B1168C00A54BCB /* Comic Panels.ttf */; };
@@ -34,6 +35,7 @@
 		D003B829204F94DA005500AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D003B82B204F94DA005500AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D003B836204F9752005500AD /* ComicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicManager.swift; sourceTree = "<group>"; };
+		D03D790A20B4ED7A00C5EDF1 /* BrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
 		D061F52B20B10F5200A54BCB /* AppearanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceManager.swift; sourceTree = "<group>"; };
 		D061F52E20B110A300A54BCB /* BADABB.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = BADABB.TTF; sourceTree = "<group>"; };
 		D061F53020B1168C00A54BCB /* Comic Panels.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comic Panels.ttf"; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			children = (
 				D0D4364C20A7E2DD00A18713 /* ComicDirectoryViewControllerTableViewController.swift */,
 				D0BB908E20ABC9CE00590A93 /* ComicCollectionViewCell.swift */,
+				D03D790A20B4ED7A00C5EDF1 /* BrowserViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0BB908F20ABC9CE00590A93 /* ComicCollectionViewCell.swift in Sources */,
+				D03D790B20B4ED7A00C5EDF1 /* BrowserViewController.swift in Sources */,
 				D0BB908A20ABB1F200590A93 /* CDStack.m in Sources */,
 				D003B820204F94DA005500AD /* AppDelegate.swift in Sources */,
 				D0D4364D20A7E2DD00A18713 /* ComicDirectoryViewControllerTableViewController.swift in Sources */,

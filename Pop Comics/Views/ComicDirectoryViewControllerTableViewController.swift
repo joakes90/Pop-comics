@@ -31,6 +31,8 @@ class ComicDirectoryViewControllerTableViewController: UITableViewController {
         let comicPath = FileController.shared.retreaveComicPaths()[indexPath.row]
         cell.textLabel?.text = comicPath.name
         cell.textLabel?.font = UIFont(name: "Comic Panels", size: 14) ?? UIFont.systemFont(ofSize: 14)
+        cell.textLabel?.textColor = UIColor.yellow
+        cell.backgroundColor = UIColor.darkGray
         return cell
     }
 
@@ -69,6 +71,14 @@ class ComicDirectoryViewControllerTableViewController: UITableViewController {
     }
     */
 
+    // MARK: - Tabel view delegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let comicPath = FileController.shared.retreaveComicPaths()[indexPath.row]
+        NotificationCenter.default.post(name: Notification.openDir,
+                                        object: nil,
+                                        userInfo: ["path": comicPath])
+    }
     /*
     // MARK: - Navigation
 
@@ -83,4 +93,8 @@ class ComicDirectoryViewControllerTableViewController: UITableViewController {
 
 enum tableViewCellIdentifers: String {
     case comicPathIdentifier = "comicPathIdentifier"
+}
+
+extension Notification {
+    static let openDir = Notification.Name("openDir")
 }
