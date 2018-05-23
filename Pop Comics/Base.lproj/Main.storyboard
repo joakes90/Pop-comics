@@ -28,26 +28,20 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="oTa-iS-6rY" customClass="ComicCollectionViewCell" customModule="Pop_Comics" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="comicCell" id="oTa-iS-6rY" customClass="ComicCollectionViewCell" customModule="Pop_Comics" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="224"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="224"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bU2-om-cy9">
-                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="224"/>
-                                                </imageView>
-                                            </subviews>
                                         </view>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="bU2-om-cy9" secondAttribute="bottom" id="4xk-ma-Ro4"/>
-                                            <constraint firstAttribute="trailing" secondItem="bU2-om-cy9" secondAttribute="trailing" id="D7P-uD-vRs"/>
-                                            <constraint firstItem="bU2-om-cy9" firstAttribute="leading" secondItem="oTa-iS-6rY" secondAttribute="leading" id="JVf-Eu-ayG"/>
-                                            <constraint firstItem="bU2-om-cy9" firstAttribute="top" secondItem="oTa-iS-6rY" secondAttribute="top" id="OJy-Vd-EFm"/>
-                                        </constraints>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="sSh-iq-j9D" id="tU9-hM-Wgu"/>
+                                    <outlet property="delegate" destination="sSh-iq-j9D" id="w2W-oJ-YeB"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -59,10 +53,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UKd-GO-TKG"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="ahg-1F-fo3" id="nzL-Ej-lsG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="olB-Kq-bOa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="162.40000000000001" y="264.91754122938534"/>
+            <point key="canvasLocation" x="162" y="359"/>
         </scene>
         <!--Pop Comics-->
         <scene sceneID="Qxz-vr-qNr">
@@ -80,6 +77,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="sSh-iq-j9D" kind="showDetail" identifier="displayBooks" id="P8S-l2-jYC"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -123,4 +123,7 @@
             <point key="canvasLocation" x="-789" y="-67"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="P8S-l2-jYC"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -10,22 +10,17 @@ import UIKit
 
 class BrowserViewController: UIViewController {
 
+    @IBOutlet weak var collectionView: UICollectionView!
+    var comics: [ComicPath]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(updateOpenBook(aNotification:)),
-                                               name: Notification.openDir,
-                                               object: nil)
         // Do any additional setup after loading the view.
     }
 
-    @objc func updateOpenBook(aNotification: Notification) {
-        guard let userInfo = aNotification.userInfo,
-            let comicPath = userInfo["path"] as? ComicPath else {
-                return
-        }
+    func updateOpenPath(comicPath: ComicPath) {
         if comicPath.isDirectory {
-            openComicDir()
+            openComicDir(url: comicPath.url)
         } else {
             presentComicViewer()
         }
@@ -35,8 +30,9 @@ class BrowserViewController: UIViewController {
         print("open viwer")
     }
     
-    fileprivate func openComicDir() {
-        print("open dir")
+    fileprivate func openComicDir(url: URL) {
+        comics = FileController.shared.comicsIn(url: url)
+//        collectionView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,12 +44,14 @@ class BrowserViewController: UIViewController {
 
 extension BrowserViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return comics?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        let comicPath = comics![indexPath.row]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "comicCell", for: indexPath) as? ComicCollectionViewCell ?? ComicCollectionViewCell()
+
+        return cell
     }
-    
     
 }

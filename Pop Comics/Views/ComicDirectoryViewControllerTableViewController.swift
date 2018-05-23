@@ -73,28 +73,25 @@ class ComicDirectoryViewControllerTableViewController: UITableViewController {
 
     // MARK: - Tabel view delegate
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let comicPath = FileController.shared.retreaveComicPaths()[indexPath.row]
-        NotificationCenter.default.post(name: Notification.openDir,
-                                        object: nil,
-                                        userInfo: ["path": comicPath])
-    }
-    /*
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let comicPath = FileController.shared.retreaveComicPaths()[indexPath.row]
+//        NotificationCenter.default.post(name: Notification.openDir,
+//                                        object: nil,
+//                                        userInfo: ["path": comicPath])
+//    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let destination = segue.destination as? BrowserViewController {
+            let openPath = FileController.shared.retreaveComicPaths()[(tableView.indexPathForSelectedRow?.row) ?? 0]
+            destination.updateOpenPath(comicPath: openPath)
+        }
     }
-    */
 
 }
 
 enum tableViewCellIdentifers: String {
     case comicPathIdentifier = "comicPathIdentifier"
-}
-
-extension Notification {
-    static let openDir = Notification.Name("openDir")
 }

@@ -57,6 +57,30 @@ class FileController {
         }
     }
     
+    func comicsIn(url: URL) -> [ComicPath] {
+        let fileManager = FileManager.default
+        do {
+            let dirContents = try fileManager.contentsOfDirectory(at: url,
+                                                              includingPropertiesForKeys: [.isRegularFileKey],
+                                                              options: [.skipsHiddenFiles, .skipsPackageDescendants, .skipsSubdirectoryDescendants])
+            var comicPaths = [ComicPath]()
+            for file in dirContents {
+                if fileIsComic(url: file) {
+                    let comicPath = ComicPath(name: (file.lastPathComponent as NSString).deletingPathExtension,
+                                              url: url,
+                                              isDirectory: false,
+                                              UUID: UUIDforFile(file: url))
+                    comicPaths.append(comicPath)
+                }
+            }
+            return comicPaths.sorted(by: { $0.name < $1.name })
+        } catch {
+            print(error.localizedDescription)
+            return [ComicPath]()
+        }
+        
+    }
+    
     fileprivate func fileIsDirectory(url: URL) -> Bool {
         let fileManager = FileManager.default
         var isDirectory: ObjCBool = false
