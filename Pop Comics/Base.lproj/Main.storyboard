@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Comic Panels.ttf">
+            <string>ComicPanels</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Pop Comics-->
         <scene sceneID="iad-re-1WE">
@@ -34,8 +39,31 @@
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="224"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="genaricComic" translatesAutoresizingMaskIntoConstraints="NO" id="E9c-Gf-Fbm">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="224"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXg-VI-e1q">
+                                                    <rect key="frame" x="0.0" y="189.5" width="150" height="14.5"/>
+                                                    <fontDescription key="fontDescription" name="ComicPanels" family="Comic Panels" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </view>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="E9c-Gf-Fbm" firstAttribute="leading" secondItem="oTa-iS-6rY" secondAttribute="leading" id="6tz-YL-RKH"/>
+                                            <constraint firstAttribute="bottom" secondItem="E9c-Gf-Fbm" secondAttribute="bottom" id="UNe-yc-r7W"/>
+                                            <constraint firstItem="E9c-Gf-Fbm" firstAttribute="top" secondItem="oTa-iS-6rY" secondAttribute="top" id="cAk-7K-d7a"/>
+                                            <constraint firstAttribute="bottom" secondItem="eXg-VI-e1q" secondAttribute="bottom" constant="20" id="cHB-KE-eI6"/>
+                                            <constraint firstAttribute="trailing" secondItem="eXg-VI-e1q" secondAttribute="trailing" id="cRu-ps-ESe"/>
+                                            <constraint firstAttribute="trailing" secondItem="E9c-Gf-Fbm" secondAttribute="trailing" id="pIM-dV-DXD"/>
+                                            <constraint firstItem="eXg-VI-e1q" firstAttribute="leading" secondItem="oTa-iS-6rY" secondAttribute="leading" id="tuc-sO-IZj"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="coverImageView" destination="E9c-Gf-Fbm" id="ptC-X8-8bE"/>
+                                            <outlet property="nameLabel" destination="eXg-VI-e1q" id="dr7-gD-eb2"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -59,7 +87,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="olB-Kq-bOa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="162" y="359"/>
+            <point key="canvasLocation" x="160.80000000000001" y="358.4707646176912"/>
         </scene>
         <!--Pop Comics-->
         <scene sceneID="Qxz-vr-qNr">
@@ -123,6 +151,9 @@
             <point key="canvasLocation" x="-789" y="-67"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="genaricComic" width="112" height="175"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="P8S-l2-jYC"/>
     </inferredMetricsTieBreakers>

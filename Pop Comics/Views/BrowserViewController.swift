@@ -50,7 +50,8 @@ extension BrowserViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let comicPath = comics![indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "comicCell", for: indexPath) as? ComicCollectionViewCell ?? ComicCollectionViewCell()
-
+        cell.nameLabel.text = comicPath.name
+        cell.retreaveMetaData(for: comicPath)
         return cell
     }
     
