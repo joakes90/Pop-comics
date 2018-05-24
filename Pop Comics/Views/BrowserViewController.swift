@@ -31,8 +31,7 @@ class BrowserViewController: UIViewController {
     }
     
     fileprivate func openComicDir(url: URL) {
-        comics = FileController.shared.comicsIn(url: url)
-//        collectionView.reloadData()
+        comics = FileController.shared.comicsIn(url: url).sorted(by: { $0.name < $1.name })
     }
     
     override func didReceiveMemoryWarning() {
@@ -55,4 +54,16 @@ extension BrowserViewController: UICollectionViewDataSource {
         return cell
     }
     
+}
+
+extension BrowserViewController: UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let cell = cell as? ComicCollectionViewCell,
+        let comicPath = comics?[indexPath.row] else {
+            return
+        }
+        cell.nameLabel.text = comicPath.name
+        cell.retreaveMetaData(for: comicPath)
+    }
 }

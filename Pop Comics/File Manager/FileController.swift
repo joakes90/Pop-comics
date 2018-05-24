@@ -104,4 +104,6 @@ struct ComicPath {
     let url: URL
     let isDirectory: Bool
     let UUID: String?
+    var metaData: Metadata?
+    
 }
