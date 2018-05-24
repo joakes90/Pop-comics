@@ -26,7 +26,7 @@ enum extensions: String {
 }
 class ComicManager {
     
-    func openComic(at path: String) -> Book? {
+    static func openComic(at path: String) -> Book? {
         let url = URL(fileURLWithPath: path)
         guard let ext = extensions(rawValue: url.pathExtension) else {
             return nil
@@ -44,7 +44,7 @@ class ComicManager {
     }
     
     
-    fileprivate func expandCBZ(url: URL) -> Book? {
+    fileprivate static func expandCBZ(url: URL) -> Book? {
         let fileManager = FileManager.default
         let tempDir = fileManager.temporaryDirectory
         let comicDir = tempDir.appendingPathComponent(url.lastPathComponent.lowercased())
@@ -73,7 +73,7 @@ class ComicManager {
         }
     }
     
-    fileprivate func expandCBT(url: URL) -> Book? {
+    fileprivate static func expandCBT(url: URL) -> Book? {
         let fileManager = FileManager.default
         let tempDir = fileManager.temporaryDirectory
         let comicDir = tempDir.appendingPathComponent(url.lastPathComponent.lowercased())
@@ -101,7 +101,7 @@ class ComicManager {
         }
     }
     
-    fileprivate func expandCBR(url: URL) -> Book? {
+    fileprivate static func expandCBR(url: URL) -> Book? {
         do {
             var book: Book?
             let cbrArchive = try URKArchive(url: url)
@@ -120,7 +120,7 @@ class ComicManager {
         }
     }
     
-    fileprivate func expandPDF(url: URL) -> Book? {
+    fileprivate static func expandPDF(url: URL) -> Book? {
         do {
             let data = try Data(contentsOf: url) as CFData
             guard let provider = CGDataProvider(data: data),
@@ -160,10 +160,24 @@ class ComicManager {
 
 extension ComicManager {
     
-    func metadataForFile(comic: ComicPath, completion: @escaping (_ : Metadata?) -> Void) {
+    static func retreaveMetadata(for comic: ComicPath, completion: @escaping (_ : Metadata?) -> Void) {
+        let coreDataQueue = DispatchQueue(label: "com.oakes.Pop-Comics.cdQueue")
+        coreDataQueue.async {
+            if let metadata = metadataForFile(comic: comic) {
+                DispatchQueue.main.async {
+                    completion(metadata)
+                }
+            } else  if let metaData = createMetadata(for: comic){
+                DispatchQueue.main.async {
+                    completion(metaData)
+                }
+            }
+        }
+    }
+    
+    fileprivate static func metadataForFile(comic: ComicPath) -> Metadata? {
         guard let uuid = comic.UUID else {
-            completion(nil)
-            return
+            return nil
         }
         let context = CDStack.sharedInstance().managedObjectContext
         let predicate = NSPredicate(format: "uuid = %@", uuid)
@@ -171,31 +185,29 @@ extension ComicManager {
         fetchRequest.predicate = predicate
         do {
             let metadata = try context?.fetch(fetchRequest)
-            DispatchQueue.main.async {
-                completion(metadata?.first)
-            }
+            return metadata?.first
         } catch {
             print(error.localizedDescription)
-            DispatchQueue.main.async {
-                completion(nil)
-            }
+            return nil
         }
     }
     
-    func createMetadata(for comic: ComicPath, completion: @escaping (_ : Metadata) -> Void) {
+    fileprivate static func createMetadata(for comic: ComicPath) -> Metadata? {
         let images = self.openComic(at: comic.url.path)
-        let cover = UIImagePNGRepresentation((images?.first) ?? #imageLiteral(resourceName: "genaricComic"))
+        let cover = UIImagePNGRepresentation((images?.first ?? #imageLiteral(resourceName: "genaricComic")))
         let context = CDStack.sharedInstance().managedObjectContext
         let entityDiscription = NSEntityDescription.entity(forEntityName: "Metadata",
                                                            in: context!)
-        let metadataObject = NSManagedObject(entity: entityDiscription!, insertInto: context) as! Metadata
+        let metadataObject = NSManagedObject(entity: entityDiscription!, insertInto: context) as? Metadata ?? Metadata(entity: entityDiscription!, insertInto: context)
         metadataObject.setValue(comic.UUID, forKey: "uuid")
         metadataObject.setValue(false, forKey: "read")
         metadataObject.setValue(cover, forKey: "coverImage")
-        do { try context?.save()
-            print("save success")
-        } catch { print("fail")}
-            completion(metadataObject)
-        
+//        do {
+//            try context?.save()
+            return metadataObject
+//        } catch {
+//            print("fail")
+//            return nil
+//        }
     }
 }

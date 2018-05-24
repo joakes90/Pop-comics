@@ -67,7 +67,7 @@ class FileController {
             for file in dirContents {
                 if fileIsComic(url: file) {
                     let comicPath = ComicPath(name: (file.lastPathComponent as NSString).deletingPathExtension,
-                                              url: url,
+                                              url: file,
                                               isDirectory: false,
                                               UUID: UUIDforFile(file: url))
                     comicPaths.append(comicPath)

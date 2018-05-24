@@ -11,10 +11,20 @@ import UIKit
 class ComicCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    fileprivate var fileURL: URL?
+    fileprivate var comicPath: ComicPath?
+    var metaData: Metadata?
     
     func retreaveMetaData(for comicPath: ComicPath) {
-        fileURL = comicPath.url
+        self.comicPath = comicPath
+        ComicManager.retreaveMetadata(for: comicPath) { (metadata) in
+            self.metaData = metadata
+            guard let metadata = metadata,
+                let coverImageData = metadata.coverImage else {
+                    return
+            }
+            let coverImage =  UIImage(data: coverImageData) ?? #imageLiteral(resourceName: "genaricComic")
+            self.coverImageView.image = coverImage
+        }
     }
     
 }
