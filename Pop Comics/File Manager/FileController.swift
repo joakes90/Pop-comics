@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class FileController {
     
@@ -32,7 +33,8 @@ class FileController {
                         comicPaths.append(ComicPath(name: (url.lastPathComponent as NSString).deletingPathExtension,
                                                     url: url,
                                                     isDirectory: isDirectory,
-                                                    UUID: UUIDforFile(file: url)))
+                                                    UUID: UUIDforFile(file: url),
+                                                    coverImage: (isDirectory ? coverImage(for: url) : #imageLiteral(resourceName: "genaricComic"))))
                     }
                 }
                 paths = comicPaths
@@ -69,7 +71,8 @@ class FileController {
                     let comicPath = ComicPath(name: (file.lastPathComponent as NSString).deletingPathExtension,
                                               url: file,
                                               isDirectory: false,
-                                              UUID: UUIDforFile(file: url))
+                                              UUID: UUIDforFile(file: url),
+                                              coverImage: coverImage(for: file))
                     comicPaths.append(comicPath)
                 }
             }
@@ -97,6 +100,15 @@ class FileController {
         return false
     }
     
+    fileprivate func coverImage(for url: URL) -> UIImage {
+        if extensions(rawValue: url.pathExtension) != nil {
+            guard let images = ComicManager.openComic(at: url.path) else {
+                return #imageLiteral(resourceName: "genaricComic")
+            }
+            return images.first ?? #imageLiteral(resourceName: "genaricComic")
+        }
+        return #imageLiteral(resourceName: "genaricComic")
+    }
 }
 
 struct ComicPath {
@@ -104,4 +116,5 @@ struct ComicPath {
     let url: URL
     let isDirectory: Bool
     let UUID: String?
+    let coverImage: UIImage
 }

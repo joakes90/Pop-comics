@@ -50,7 +50,7 @@ extension BrowserViewController: UICollectionViewDataSource {
         let comicPath = comics![indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "comicCell", for: indexPath) as? ComicCollectionViewCell ?? ComicCollectionViewCell()
         cell.nameLabel.text = comicPath.name
-        cell.retreaveMetaData(for: comicPath)
+        cell.coverImageView.image = comicPath.coverImage
         return cell
     }
     
@@ -58,12 +58,12 @@ extension BrowserViewController: UICollectionViewDataSource {
 
 extension BrowserViewController: UICollectionViewDelegate {
 
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard let cell = cell as? ComicCollectionViewCell,
-        let comicPath = comics?[indexPath.row] else {
-            return
-        }
-        cell.nameLabel.text = comicPath.name
-        cell.retreaveMetaData(for: comicPath)
-    }
+//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//        guard let cell = cell as? ComicCollectionViewCell,
+//        let comicPath = comics?[indexPath.row] else {
+//            return
+//        }
+//        cell.nameLabel.text = comicPath.name
+//        cell.retreaveMetaData(for: comicPath)
+//    }
 }
