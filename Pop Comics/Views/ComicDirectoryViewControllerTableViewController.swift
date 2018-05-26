@@ -70,14 +70,6 @@ class ComicDirectoryViewControllerTableViewController: UITableViewController {
     }
     */
 
-    // MARK: - Tabel view delegate
-    
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let comicPath = FileController.shared.retreaveComicPaths()[indexPath.row]
-//        NotificationCenter.default.post(name: Notification.openDir,
-//                                        object: nil,
-//                                        userInfo: ["path": comicPath])
-//    }
     
     // MARK: - Navigation
 

@@ -59,29 +59,35 @@ class FileController {
         }
     }
     
-    func comicsIn(url: URL) -> [ComicPath] {
-        let fileManager = FileManager.default
-        do {
-            let dirContents = try fileManager.contentsOfDirectory(at: url,
-                                                              includingPropertiesForKeys: [.isRegularFileKey],
-                                                              options: [.skipsHiddenFiles, .skipsPackageDescendants, .skipsSubdirectoryDescendants])
-            var comicPaths = [ComicPath]()
-            for file in dirContents {
-                if fileIsComic(url: file) {
-                    let comicPath = ComicPath(name: (file.lastPathComponent as NSString).deletingPathExtension,
-                                              url: file,
-                                              isDirectory: false,
-                                              UUID: UUIDforFile(file: url),
-                                              coverImage: coverImage(for: file))
-                    comicPaths.append(comicPath)
+    func comicsIn(url: URL, completion: (_ : ([ComicPath]) -> Void)) {
+        let comicsQueue = DispatchQueue(label: "com.oakes.Pop-Comics.comicQueue")
+        comicsQueue.async {
+            let fileManager = FileManager.default
+            do {
+                let dirContents = try fileManager.contentsOfDirectory(at: url,
+                                                                      includingPropertiesForKeys: [.isRegularFileKey],
+                                                                      options: [.skipsHiddenFiles, .skipsPackageDescendants, .skipsSubdirectoryDescendants])
+                var comicPaths = [ComicPath]()
+                for file in dirContents {
+                    if self.fileIsComic(url: file) {
+                        let comicPath = ComicPath(name: (file.lastPathComponent as NSString).deletingPathExtension,
+                                                  url: file,
+                                                  isDirectory: false,
+                                                  UUID: self.UUIDforFile(file: url),
+                                                  coverImage: self.coverImage(for: file))
+                        comicPaths.append(comicPath)
+                    }
+                }
+                DispatchQueue.main.async {
+                    completion(comicPaths)
+                }
+            } catch {
+                print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    completion([ComicPath]())
                 }
             }
-            return comicPaths.sorted(by: { $0.name < $1.name })
-        } catch {
-            print(error.localizedDescription)
-            return [ComicPath]()
         }
-        
     }
     
     fileprivate func fileIsDirectory(url: URL) -> Bool {

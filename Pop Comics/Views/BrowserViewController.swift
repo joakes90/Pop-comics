@@ -31,7 +31,12 @@ class BrowserViewController: UIViewController {
     }
     
     fileprivate func openComicDir(url: URL) {
-        comics = FileController.shared.comicsIn(url: url).sorted(by: { $0.name < $1.name })
+        print("in progress")
+        FileController.shared.comicsIn(url: url) { (comics) in
+            self.comics = comics
+            self.collectionView.reloadData()
+            print("not in progress")
+        }
     }
     
     override func didReceiveMemoryWarning() {
