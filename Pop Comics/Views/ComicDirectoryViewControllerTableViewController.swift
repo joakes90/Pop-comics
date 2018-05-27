@@ -9,66 +9,51 @@
 import UIKit
 
 class ComicDirectoryViewControllerTableViewController: UITableViewController {
-
+    
+    var sections: [ComicSecton]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        sections = FileController.shared.comicPathsBySection()
     }
 
 
     // MARK: - Table view data source
 
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        return FileController.shared.retreaveComicPaths().count
-//    }
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return sections?.count ?? 0
+    }
 
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections?[section].letter ?? ""
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return FileController.shared.retreaveComicPaths().count
+        let section = sections?[section]
+        return section?.comicPaths.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let section = sections?[indexPath.section]
+        let comicPath = section?.comicPaths[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: tableViewCellIdentifers.comicPathIdentifier.rawValue, for: indexPath)
-        let comicPath = FileController.shared.retreaveComicPaths()[indexPath.row]
-        cell.textLabel?.text = comicPath.name
+        cell.textLabel?.text = comicPath?.name ?? ""
         cell.textLabel?.font = UIFont(name: "Comic Panels", size: 14) ?? UIFont.systemFont(ofSize: 14)
         cell.textLabel?.textColor = UIColor.yellow
         cell.backgroundColor = UIColor.darkGray
         return cell
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        var titles = [String]()
+        sections?.forEach({ (section) in
+            titles.append(section.letter)
+        })
+        return titles
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+        return sections?.index(where: { $0.letter == title }) ?? 0
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     
     // MARK: - Navigation

@@ -15,6 +15,22 @@ class FileController {
     
     private var paths: [ComicPath] = [ComicPath]()
     
+    func comicPathsBySection() -> [ComicSecton] {
+        let comicPaths = retreaveComicPaths()
+        var sections = [ComicSecton]()
+        
+        for path in comicPaths {
+            let firstLetter = String(path.name.first ?? "A").uppercased()
+            if let index = sections.index(where: { $0.letter == firstLetter}) {
+                sections[index].comicPaths.append(path)
+            } else {
+                let section = ComicSecton(letter: firstLetter, comicPaths: [path])
+                sections.append(section)
+            }
+        }
+        return sections.sorted(by: { $0.letter < $1.letter })
+    }
+    
     func retreaveComicPaths(forceUpdate: Bool = false) -> [ComicPath] {
         if paths.count <= 0 || forceUpdate {
             let fileManager = FileManager.default
@@ -123,4 +139,9 @@ struct ComicPath {
     let isDirectory: Bool
     let UUID: String?
     let coverImage: UIImage
+}
+
+struct ComicSecton {
+    let letter: String
+    var comicPaths: [ComicPath]
 }
