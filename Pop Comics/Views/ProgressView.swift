@@ -10,6 +10,7 @@ import UIKit
 
 class ProgressView: UIView {
     
+    let imageView = UIImageView(image: #imageLiteral(resourceName: "wordballoon"))
     static let sharedInstance = ProgressView()
     
     override init(frame: CGRect) {
