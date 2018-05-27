@@ -67,6 +67,7 @@ class ComicDirectoryViewControllerTableViewController: UITableViewController {
             guard let selectedPath = sections?[(selectedIndexPath?.section) ?? 0].comicPaths[selectedIndexPath?.row ?? 0] else {
                 return
             }
+            destination.title = selectedPath.name
             destination.updateOpenPath(comicPath: selectedPath)
         }
     }
