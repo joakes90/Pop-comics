@@ -57,6 +57,9 @@ class ComicDirectoryViewControllerTableViewController: UITableViewController {
         return sections?.index(where: { $0.letter == title }) ?? 0
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
     // MARK: - Navigation
 
