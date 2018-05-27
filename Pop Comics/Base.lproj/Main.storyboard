@@ -9,11 +9,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Comic Panels.ttf">
-            <string>ComicPanels</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Browser View Controller-->
         <scene sceneID="iad-re-1WE">
@@ -25,7 +20,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ahg-1F-fo3">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tRe-rK-UDf">
                                     <size key="itemSize" width="150" height="224"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -43,28 +38,16 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="genaricComic" translatesAutoresizingMaskIntoConstraints="NO" id="E9c-Gf-Fbm">
                                                     <rect key="frame" x="0.0" y="0.0" width="150" height="224"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXg-VI-e1q">
-                                                    <rect key="frame" x="0.0" y="188.5" width="150" height="15.5"/>
-                                                    <fontDescription key="fontDescription" name="ComicPanels" family="Comic Panels" pointSize="14"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <size key="shadowOffset" width="-1" height="-1"/>
-                                                </label>
                                             </subviews>
                                         </view>
                                         <constraints>
                                             <constraint firstItem="E9c-Gf-Fbm" firstAttribute="leading" secondItem="oTa-iS-6rY" secondAttribute="leading" id="6tz-YL-RKH"/>
                                             <constraint firstAttribute="bottom" secondItem="E9c-Gf-Fbm" secondAttribute="bottom" id="UNe-yc-r7W"/>
                                             <constraint firstItem="E9c-Gf-Fbm" firstAttribute="top" secondItem="oTa-iS-6rY" secondAttribute="top" id="cAk-7K-d7a"/>
-                                            <constraint firstAttribute="bottom" secondItem="eXg-VI-e1q" secondAttribute="bottom" constant="20" id="cHB-KE-eI6"/>
-                                            <constraint firstAttribute="trailing" secondItem="eXg-VI-e1q" secondAttribute="trailing" id="cRu-ps-ESe"/>
                                             <constraint firstAttribute="trailing" secondItem="E9c-Gf-Fbm" secondAttribute="trailing" id="pIM-dV-DXD"/>
-                                            <constraint firstItem="eXg-VI-e1q" firstAttribute="leading" secondItem="oTa-iS-6rY" secondAttribute="leading" id="tuc-sO-IZj"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="coverImageView" destination="E9c-Gf-Fbm" id="ptC-X8-8bE"/>
-                                            <outlet property="nameLabel" destination="eXg-VI-e1q" id="dr7-gD-eb2"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -74,7 +57,7 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ahg-1F-fo3" firstAttribute="trailing" secondItem="UKd-GO-TKG" secondAttribute="trailing" id="NRc-Rb-HVR"/>
                             <constraint firstItem="ahg-1F-fo3" firstAttribute="leading" secondItem="UKd-GO-TKG" secondAttribute="leading" id="Q67-jz-aff"/>
@@ -85,6 +68,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="ahg-1F-fo3" id="nzL-Ej-lsG"/>
+                        <outlet property="flowLayout" destination="tRe-rK-UDf" id="e33-Ri-rJl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="olB-Kq-bOa" userLabel="First Responder" sceneMemberID="firstResponder"/>

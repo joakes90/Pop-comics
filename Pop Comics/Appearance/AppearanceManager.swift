@@ -13,6 +13,7 @@ class AppearanceManager {
     static func applyDefaultTheme() {
         let headlineFontAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.font: UIFont(name: "BadaBoom BB", size: 18.0) ?? UIFont.systemFont(ofSize: 18.0)]
         UINavigationBar.appearance().titleTextAttributes = headlineFontAttributes
+        UINavigationBar.appearance().tintColor = UIColor.yellow
 
     }
     

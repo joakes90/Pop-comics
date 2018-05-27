@@ -14,6 +14,8 @@ class ComicDirectoryViewControllerTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let backButton = UIBarButtonItem(title: nil, style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backButton
         sections = FileController.shared.comicPathsBySection()
     }
 
@@ -61,8 +63,11 @@ class ComicDirectoryViewControllerTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? BrowserViewController {
-            let openPath = FileController.shared.retreaveComicPaths()[(tableView.indexPathForSelectedRow?.row) ?? 0]
-            destination.updateOpenPath(comicPath: openPath)
+            let selectedIndexPath = tableView.indexPathForSelectedRow
+            guard let selectedPath = sections?[(selectedIndexPath?.section) ?? 0].comicPaths[selectedIndexPath?.row ?? 0] else {
+                return
+            }
+            destination.updateOpenPath(comicPath: selectedPath)
         }
     }
 

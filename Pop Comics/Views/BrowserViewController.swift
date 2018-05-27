@@ -11,11 +11,18 @@ import UIKit
 class BrowserViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    
     var comics: [ComicPath]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // Configure collection View
+        flowLayout.minimumLineSpacing = 8.0
+        flowLayout.minimumInteritemSpacing = 2.0
+        flowLayout.itemSize = CGSize(width: 150, height: 234)
+        flowLayout.sectionInset = UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)
+     
     }
 
     func updateOpenPath(comicPath: ComicPath) {
@@ -54,7 +61,6 @@ extension BrowserViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let comicPath = comics![indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "comicCell", for: indexPath) as? ComicCollectionViewCell ?? ComicCollectionViewCell()
-        cell.nameLabel.text = comicPath.name
         cell.coverImageView.image = comicPath.coverImage
         return cell
     }
