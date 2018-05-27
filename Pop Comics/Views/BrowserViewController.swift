@@ -38,11 +38,11 @@ class BrowserViewController: UIViewController {
     }
     
     fileprivate func openComicDir(url: URL) {
-        print("in progress")
+        ProgressView.show()
         FileController.shared.comicsIn(url: url) { (comics) in
             self.comics = comics
             self.collectionView.reloadData()
-            print("not in progress")
+            ProgressView.hide()
         }
     }
     
