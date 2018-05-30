@@ -42,7 +42,7 @@ class BrowserViewController: UIViewController {
         FileController.shared.comicsIn(url: url) { (comics) in
             self.comics = comics
             self.collectionView.reloadData()
-            ProgressView.hide()
+//            ProgressView.hide()
         }
     }
     

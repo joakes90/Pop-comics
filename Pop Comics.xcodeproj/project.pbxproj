@@ -23,6 +23,7 @@
 		D0D4364D20A7E2DD00A18713 /* ComicDirectoryViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D4364C20A7E2DD00A18713 /* ComicDirectoryViewControllerTableViewController.swift */; };
 		D0D4364F20A7E40A00A18713 /* FileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D4364E20A7E40A00A18713 /* FileController.swift */; };
 		D0E4B5CC20BB625200C1A2F3 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E4B5CB20BB625200C1A2F3 /* ProgressView.swift */; };
+		D0E4B5CE20BB6D0F00C1A2F3 /* ProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0E4B5CD20BB6D0F00C1A2F3 /* ProgressView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		D0D4364C20A7E2DD00A18713 /* ComicDirectoryViewControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDirectoryViewControllerTableViewController.swift; sourceTree = "<group>"; };
 		D0D4364E20A7E40A00A18713 /* FileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileController.swift; sourceTree = "<group>"; };
 		D0E4B5CB20BB625200C1A2F3 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		D0E4B5CD20BB6D0F00C1A2F3 /* ProgressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				D0BB908E20ABC9CE00590A93 /* ComicCollectionViewCell.swift */,
 				D03D790A20B4ED7A00C5EDF1 /* BrowserViewController.swift */,
 				D0E4B5CB20BB625200C1A2F3 /* ProgressView.swift */,
+				D0E4B5CD20BB6D0F00C1A2F3 /* ProgressView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				D061F53120B11CB200A54BCB /* Comic Panels.ttf in Resources */,
 				D061F52F20B110D000A54BCB /* BADABB.TTF in Resources */,
 				D003B82A204F94DA005500AD /* LaunchScreen.storyboard in Resources */,
+				D0E4B5CE20BB6D0F00C1A2F3 /* ProgressView.xib in Resources */,
 				D003B827204F94DA005500AD /* Assets.xcassets in Resources */,
 				D003B825204F94DA005500AD /* Main.storyboard in Resources */,
 			);
