@@ -41,7 +41,7 @@ class BrowserViewController: UIViewController {
         ProgressView.show()
         FileController.shared.comicsIn(url: url) { (comics) in
             ComicManager.retreaveMetadata(for: comics, completion: { (metaData) in
-                self.comicMetadata = metaData
+                self.comicMetadata = metaData.sorted(by: { ($0.name ?? "AAA") < ($1.name ?? "BBB")})
                 self.collectionView.reloadData()
                 ProgressView.hide()
             })

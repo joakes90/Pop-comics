@@ -202,11 +202,13 @@ extension ComicManager {
     fileprivate static func createMetadata(for comic: ComicPath) -> Metadata? {
         let images = self.openComic(at: comic.url.path)
         let cover = UIImagePNGRepresentation((images?.first ?? #imageLiteral(resourceName: "genaricComic")))
+        let name = (comic.url.lastPathComponent as NSString).deletingPathExtension
         let context = CDStack.sharedInstance().managedObjectContext
         let entityDiscription = NSEntityDescription.entity(forEntityName: "Metadata",
                                                            in: context!)
         let metadataObject = NSManagedObject(entity: entityDiscription!, insertInto: context) as? Metadata ?? Metadata(entity: entityDiscription!, insertInto: context)
         metadataObject.setValue(comic.UUID, forKey: "uuid")
+        metadataObject.setValue(name, forKey: "name")
         metadataObject.setValue(false, forKey: "read")
         metadataObject.setValue(cover, forKey: "coverImage")
         return metadataObject
