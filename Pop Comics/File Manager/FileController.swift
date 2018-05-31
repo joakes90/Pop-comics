@@ -88,7 +88,7 @@ class FileController {
                         let comicPath = ComicPath(name: (file.lastPathComponent as NSString).deletingPathExtension,
                                                   url: file,
                                                   isDirectory: false,
-                                                  UUID: self.UUIDforFile(file: url))
+                                                  UUID: self.UUIDforFile(file: file))
                         comicPaths.append(comicPath)
                     }
                 }
