@@ -160,17 +160,24 @@ class ComicManager {
 
 extension ComicManager {
     
-    static func retreaveMetadata(for comic: ComicPath, completion: @escaping (_ : Metadata?) -> Void) {
+    static func retreaveMetadata(for comics: [ComicPath], completion: @escaping (_ : [Metadata]) -> Void) {
         let coreDataQueue = DispatchQueue(label: "com.oakes.Pop-Comics.cdQueue")
         coreDataQueue.async {
-            if let metadata = metadataForFile(comic: comic) {
-                DispatchQueue.main.async {
-                    completion(metadata)
+            var metaData = [Metadata]()
+            for comic in comics {
+                if let content = metadataForFile(comic: comic) {
+                    metaData.append(content)
+                } else  if let content = createMetadata(for: comic){
+                    metaData.append(content)
                 }
-            } else  if let metaData = createMetadata(for: comic){
-                DispatchQueue.main.async {
-                    completion(metaData)
-                }
+            }
+            do {
+                try CDStack.sharedInstance().managedObjectContext.save()
+            } catch {
+                print(error.localizedDescription)
+            }
+            DispatchQueue.main.async {
+                completion(metaData)
             }
         }
     }
@@ -202,12 +209,6 @@ extension ComicManager {
         metadataObject.setValue(comic.UUID, forKey: "uuid")
         metadataObject.setValue(false, forKey: "read")
         metadataObject.setValue(cover, forKey: "coverImage")
-//        do {
-//            try context?.save()
-            return metadataObject
-//        } catch {
-//            print("fail")
-//            return nil
-//        }
+        return metadataObject
     }
 }

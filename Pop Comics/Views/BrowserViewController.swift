@@ -13,7 +13,7 @@ class BrowserViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
-    var comics: [ComicPath]?
+    var comicMetadata: [Metadata]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,9 +40,11 @@ class BrowserViewController: UIViewController {
     fileprivate func openComicDir(url: URL) {
         ProgressView.show()
         FileController.shared.comicsIn(url: url) { (comics) in
-            self.comics = comics
-            self.collectionView.reloadData()
-//            ProgressView.hide()
+            ComicManager.retreaveMetadata(for: comics, completion: { (metaData) in
+                self.comicMetadata = metaData
+                self.collectionView.reloadData()
+                ProgressView.hide()
+            })
         }
     }
     
@@ -55,13 +57,17 @@ class BrowserViewController: UIViewController {
 
 extension BrowserViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return comics?.count ?? 0
+        return comicMetadata?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let comicPath = comics![indexPath.row]
+//        let comicPath = comics![indexPath.row]
+        // TODO: handel unwrapping
+        let comic = comicMetadata![indexPath.row]
+        //TODO: handel unwrapping
+        let coverImage = UIImage(data: comic.coverImage!) ?? #imageLiteral(resourceName: "genaricComic")
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "comicCell", for: indexPath) as? ComicCollectionViewCell ?? ComicCollectionViewCell()
-        cell.coverImageView.image = comicPath.coverImage
+        cell.coverImageView.image = coverImage
         return cell
     }
     

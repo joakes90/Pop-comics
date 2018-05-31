@@ -49,8 +49,7 @@ class FileController {
                         comicPaths.append(ComicPath(name: (url.lastPathComponent as NSString).deletingPathExtension,
                                                     url: url,
                                                     isDirectory: isDirectory,
-                                                    UUID: UUIDforFile(file: url),
-                                                    coverImage: (isDirectory ? coverImage(for: url) : #imageLiteral(resourceName: "genaricComic"))))
+                                                    UUID: UUIDforFile(file: url)))
                     }
                 }
                 paths = comicPaths
@@ -89,8 +88,7 @@ class FileController {
                         let comicPath = ComicPath(name: (file.lastPathComponent as NSString).deletingPathExtension,
                                                   url: file,
                                                   isDirectory: false,
-                                                  UUID: self.UUIDforFile(file: url),
-                                                  coverImage: self.coverImage(for: file))
+                                                  UUID: self.UUIDforFile(file: url))
                         comicPaths.append(comicPath)
                     }
                 }
@@ -138,7 +136,6 @@ struct ComicPath {
     let url: URL
     let isDirectory: Bool
     let UUID: String?
-    let coverImage: UIImage
 }
 
 struct ComicSecton {

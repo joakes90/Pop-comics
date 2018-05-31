@@ -25,13 +25,14 @@ class ProgressView: UIView {
         setup()
     }
     
-    func setup() {
+    private func setup() {
         frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         autoresizingMask = [.flexibleWidth, .flexibleHeight]
         Bundle.main.loadNibNamed("ProgressView", owner: self, options: nil)
         backgroundView.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: frame.size)
         backgroundView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(backgroundView)
+        growAnimation(on: imageView, for: 0.25)
     }
     
     private func show() {
@@ -48,7 +49,6 @@ class ProgressView: UIView {
         animation.toValue = 1
         animation.duration = 0.3
         layer.add(animation, forKey: "fadeIn")
-        growAnimation(on: imageView, for: 0.25)
     }
     
     private func hide() {
@@ -60,6 +60,7 @@ class ProgressView: UIView {
         animation.toValue = 1
         animation.duration = 0.3
         layer.add(animation, forKey: "fadeOut")
+        imageView.layer.removeAllAnimations()
         self.removeFromSuperview()
     }
     
@@ -77,7 +78,7 @@ class ProgressView: UIView {
         CATransaction.commit()
     }
     
-    func shrinkAnimation(on view: UIView, for duration: CGFloat) {
+    private func shrinkAnimation(on view: UIView, for duration: CGFloat) {
         CATransaction.begin()
         CATransaction.setCompletionBlock {
             self.imageView.layer.transform = CATransform3DMakeScale(0.575, 0.575, 0.575)
@@ -93,7 +94,7 @@ class ProgressView: UIView {
         CATransaction.commit()
     }
     
-    func growAnimation(on view: UIView, for duration: CGFloat) {
+    private func growAnimation(on view: UIView, for duration: CGFloat) {
         CATransaction.begin()
         CATransaction.setCompletionBlock {
             self.imageView.layer.transform = CATransform3DMakeScale(1.75, 1.75, 1.75)
