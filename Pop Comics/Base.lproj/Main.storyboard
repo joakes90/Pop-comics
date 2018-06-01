@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nn8-4J-jts">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nn8-4J-jts">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -48,6 +48,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="coverImageView" destination="E9c-Gf-Fbm" id="ptC-X8-8bE"/>
+                                            <segue destination="MZY-Ai-WFa" kind="presentation" id="rm2-WQ-0D5"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -74,6 +75,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="olB-Kq-bOa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="160.80000000000001" y="358.4707646176912"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="Be4-UL-pSn">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="MZY-Ai-WFa" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bns-gd-kdY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1028" y="358"/>
         </scene>
         <!--Pop Comics-->
         <scene sceneID="Qxz-vr-qNr">
