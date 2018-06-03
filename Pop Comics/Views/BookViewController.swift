@@ -16,7 +16,7 @@ class BookViewController: UIPageViewController, UIPageViewControllerDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        dataSource = self
         // Do any additional setup after loading the view.
     }
     
@@ -44,18 +44,18 @@ class BookViewController: UIPageViewController, UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         let currentIndex = bookViewControllers?.index(of: viewController as? BookPageViewController ?? BookPageViewController()) ?? 0
-        if currentIndex <= 0 {
+        if currentIndex >= (bookViewControllers?.count ?? 999) - 1 {
             return nil
         }
-        return bookViewControllers?[currentIndex - 1]
+        return bookViewControllers?[currentIndex + 1]
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let currentIndex = bookViewControllers?.index(of: viewController as? BookPageViewController ?? BookPageViewController()) ?? 0
-        if currentIndex >= (bookViewControllers?.count ?? 0) - 1 {
+        if currentIndex <= 0 {
             return nil
         }
-        return bookViewControllers?[currentIndex + 1]
+        return bookViewControllers?[currentIndex - 1]
     }
     
     

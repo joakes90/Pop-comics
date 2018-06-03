@@ -13,8 +13,8 @@ class BookPageViewController: UIViewController {
     @IBOutlet weak var pageImageView: UIImageView!
     var pageImage: UIImage?
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         pageImageView.image = pageImage
     }
 
