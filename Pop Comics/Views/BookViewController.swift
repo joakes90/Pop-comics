@@ -28,6 +28,7 @@ class BookViewController: UIPageViewController, UIPageViewControllerDataSource {
         }
         book = ComicManager.openComic(at: path)
         bookViewControllers = ComicManager.pageViewControllers(for: book ?? Book())
+        bookViewControllers?.forEach( { $0.delegate = self })
         if let firstViewController = bookViewControllers?.first {
             setViewControllers([firstViewController],
                                direction: UIPageViewControllerNavigationDirection.forward,
@@ -58,15 +59,20 @@ class BookViewController: UIPageViewController, UIPageViewControllerDataSource {
         return bookViewControllers?[currentIndex - 1]
     }
     
+}
+
+extension BookViewController: BookViewDismissProtocol {
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    func dismissPageView() {
+        dismiss(animated: true) {
+            self.comicMetadata = nil
+            self.book = nil
+            self.bookViewControllers = nil
+        }
+    }
+}
+
+protocol BookViewDismissProtocol {
     
+    func dismissPageView()
 }
