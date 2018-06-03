@@ -14,8 +14,8 @@
 		D003B82A204F94DA005500AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D003B828204F94DA005500AD /* LaunchScreen.storyboard */; };
 		D003B837204F9752005500AD /* ComicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D003B836204F9752005500AD /* ComicManager.swift */; };
 		D03D790B20B4ED7A00C5EDF1 /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03D790A20B4ED7A00C5EDF1 /* BrowserViewController.swift */; };
-		D054FA5520C2114200A7BA37 /* PagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D054FA5320C2114200A7BA37 /* PagesViewController.swift */; };
-		D054FA5620C2114200A7BA37 /* PagesPagesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D054FA5420C2114200A7BA37 /* PagesPagesViewController.xib */; };
+		D054FA5A20C366E700A7BA37 /* BookPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D054FA5920C366E700A7BA37 /* BookPageViewController.swift */; };
+		D054FA5C20C3684A00A7BA37 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D054FA5B20C3684A00A7BA37 /* BookViewController.swift */; };
 		D061F52C20B10F5200A54BCB /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D061F52B20B10F5200A54BCB /* AppearanceManager.swift */; };
 		D061F52F20B110D000A54BCB /* BADABB.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D061F52E20B110A300A54BCB /* BADABB.TTF */; };
 		D061F53120B11CB200A54BCB /* Comic Panels.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D061F53020B1168C00A54BCB /* Comic Panels.ttf */; };
@@ -40,8 +40,8 @@
 		D003B82B204F94DA005500AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D003B836204F9752005500AD /* ComicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicManager.swift; sourceTree = "<group>"; };
 		D03D790A20B4ED7A00C5EDF1 /* BrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
-		D054FA5320C2114200A7BA37 /* PagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagesViewController.swift; sourceTree = "<group>"; };
-		D054FA5420C2114200A7BA37 /* PagesPagesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PagesPagesViewController.xib; sourceTree = "<group>"; };
+		D054FA5920C366E700A7BA37 /* BookPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPageViewController.swift; sourceTree = "<group>"; };
+		D054FA5B20C3684A00A7BA37 /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
 		D061F52B20B10F5200A54BCB /* AppearanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceManager.swift; sourceTree = "<group>"; };
 		D061F52E20B110A300A54BCB /* BADABB.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = BADABB.TTF; sourceTree = "<group>"; };
 		D061F53020B1168C00A54BCB /* Comic Panels.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comic Panels.ttf"; sourceTree = "<group>"; };
@@ -148,8 +148,8 @@
 				D03D790A20B4ED7A00C5EDF1 /* BrowserViewController.swift */,
 				D0E4B5CB20BB625200C1A2F3 /* ProgressView.swift */,
 				D0E4B5CD20BB6D0F00C1A2F3 /* ProgressView.xib */,
-				D054FA5320C2114200A7BA37 /* PagesViewController.swift */,
-				D054FA5420C2114200A7BA37 /* PagesPagesViewController.xib */,
+				D054FA5920C366E700A7BA37 /* BookPageViewController.swift */,
+				D054FA5B20C3684A00A7BA37 /* BookViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -236,7 +236,6 @@
 				D061F53120B11CB200A54BCB /* Comic Panels.ttf in Resources */,
 				D061F52F20B110D000A54BCB /* BADABB.TTF in Resources */,
 				D003B82A204F94DA005500AD /* LaunchScreen.storyboard in Resources */,
-				D054FA5620C2114200A7BA37 /* PagesPagesViewController.xib in Resources */,
 				D0E4B5CE20BB6D0F00C1A2F3 /* ProgressView.xib in Resources */,
 				D003B827204F94DA005500AD /* Assets.xcassets in Resources */,
 				D003B825204F94DA005500AD /* Main.storyboard in Resources */,
@@ -308,15 +307,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D054FA5520C2114200A7BA37 /* PagesViewController.swift in Sources */,
 				D0BB908F20ABC9CE00590A93 /* ComicCollectionViewCell.swift in Sources */,
 				D03D790B20B4ED7A00C5EDF1 /* BrowserViewController.swift in Sources */,
 				D0BB908A20ABB1F200590A93 /* CDStack.m in Sources */,
 				D003B820204F94DA005500AD /* AppDelegate.swift in Sources */,
 				D0D4364D20A7E2DD00A18713 /* ComicDirectoryViewControllerTableViewController.swift in Sources */,
+				D054FA5A20C366E700A7BA37 /* BookPageViewController.swift in Sources */,
 				D003B837204F9752005500AD /* ComicManager.swift in Sources */,
 				D061F52C20B10F5200A54BCB /* AppearanceManager.swift in Sources */,
 				D0E4B5CC20BB625200C1A2F3 /* ProgressView.swift in Sources */,
+				D054FA5C20C3684A00A7BA37 /* BookViewController.swift in Sources */,
 				D0BB907420ABAD5E00590A93 /* Metadata.xcdatamodeld in Sources */,
 				D0D4364F20A7E40A00A18713 /* FileController.swift in Sources */,
 			);

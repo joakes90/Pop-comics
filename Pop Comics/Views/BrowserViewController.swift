@@ -29,12 +29,16 @@ class BrowserViewController: UIViewController {
         if comicPath.isDirectory {
             openComicDir(url: comicPath.url)
         } else {
-            presentComicViewer()
+//            presentComicViewer()
         }
     }
     
-    fileprivate func presentComicViewer() {
-        print("open viwer")
+    fileprivate func presentComicViewer(for destination: BookViewController) {
+        guard let indexPath = collectionView.indexPathsForSelectedItems?.first,
+            let selectedMetadata = comicMetadata?[indexPath.row] else {
+                return
+        }
+        destination.comicMetadata  = selectedMetadata
     }
     
     fileprivate func openComicDir(url: URL) {
@@ -45,6 +49,18 @@ class BrowserViewController: UIViewController {
                 self.collectionView.reloadData()
                 ProgressView.hide()
             })
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "presentViewer":
+            if let destination = segue.destination as? BookViewController {
+                presentComicViewer(for: destination)
+            }
+            break
+        default:
+            print("Am i ever called?")
         }
     }
     

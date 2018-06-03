@@ -156,6 +156,16 @@ class ComicManager {
             return nil
         }
     }
+    
+    static func pageViewControllers(for book: Book) -> [BookPageViewController] {
+        var viewControllers = [BookPageViewController]()
+        for page in book {
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BookPageViewController") as? BookPageViewController ?? BookPageViewController()
+            vc.pageImage = page
+            viewControllers.append(vc)
+        }
+        return viewControllers
+    }
 }
 
 extension ComicManager {
@@ -191,8 +201,9 @@ extension ComicManager {
         let fetchRequest = NSFetchRequest<Metadata>(entityName: "Metadata")
         fetchRequest.predicate = predicate
         do {
-            let metadata = try context?.fetch(fetchRequest)
-            return metadata?.first
+            let metadata = try context?.fetch(fetchRequest).first
+            metadata?.setValue(comic.url.absoluteString, forKey: "url")
+            return metadata
         } catch {
             print(error.localizedDescription)
             return nil
@@ -211,6 +222,7 @@ extension ComicManager {
         metadataObject.setValue(name, forKey: "name")
         metadataObject.setValue(false, forKey: "read")
         metadataObject.setValue(cover, forKey: "coverImage")
+        metadataObject.setValue(comic.url.absoluteString, forKey: "url")
         return metadataObject
     }
 }

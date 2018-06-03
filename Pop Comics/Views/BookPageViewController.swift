@@ -1,19 +1,21 @@
 //
-//  Pages.swift
+//  BookPageViewController.swift
 //  Pop Comics
 //
-//  Created by justin on 6/1/18.
+//  Created by justin on 6/2/18.
 //  Copyright © 2018 Oklasoft LLC. All rights reserved.
 //
 
 import UIKit
 
-class PagesViewController: UIViewController {
+class BookPageViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    @IBOutlet weak var pageImageView: UIImageView!
+    var pageImage: UIImage?
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        pageImageView.image = pageImage
     }
 
     override func didReceiveMemoryWarning() {
