@@ -32,7 +32,6 @@ class ProgressView: UIView {
         backgroundView.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: frame.size)
         backgroundView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(backgroundView)
-        growAnimation(on: imageView, for: 0.25)
     }
     
     private func show() {
@@ -49,6 +48,7 @@ class ProgressView: UIView {
         animation.toValue = 1
         animation.duration = 0.3
         layer.add(animation, forKey: "fadeIn")
+        spinAnimation(on: imageView, for: 1.25, rotations: 3)
     }
     
     private func hide() {
@@ -67,48 +67,17 @@ class ProgressView: UIView {
     private func spinAnimation(on view: UIView, for duration: CGFloat, rotations: CGFloat) {
         CATransaction.begin()
         CATransaction.setCompletionBlock {
-            self.shrinkAnimation(on: self.imageView, for: 0.25)
         }
         let animation = CABasicAnimation(keyPath: "transform.rotation.z")
         animation.toValue = CGFloat.pi * 2.0 * rotations
         animation.duration = Double(duration) as CFTimeInterval
         animation.isCumulative = true
+        animation.repeatCount = .infinity
         animation.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseInEaseOut)
         view.layer.add(animation, forKey: "spinAnimation")
         CATransaction.commit()
     }
-    
-    private func shrinkAnimation(on view: UIView, for duration: CGFloat) {
-        CATransaction.begin()
-        CATransaction.setCompletionBlock {
-            self.imageView.layer.transform = CATransform3DMakeScale(0.575, 0.575, 0.575)
-            self.growAnimation(on: self.imageView, for: 0.25)
-        }
-        let animation = CABasicAnimation(keyPath: "transform")
-        let transform = CATransform3DMakeScale(0.575, 0.575, 0.575)
-        animation.toValue = transform
-        animation.duration = Double(duration) as CFTimeInterval
-        animation.isCumulative = true
-        animation.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseInEaseOut)
-        view.layer.add(animation, forKey: "shrinkAnimation")
-        CATransaction.commit()
-    }
-    
-    private func growAnimation(on view: UIView, for duration: CGFloat) {
-        CATransaction.begin()
-        CATransaction.setCompletionBlock {
-            self.imageView.layer.transform = CATransform3DMakeScale(1.75, 1.75, 1.75)
-            self.spinAnimation(on: self.imageView, for: 1.5, rotations: 3.0)
-        }
-        let animation = CABasicAnimation(keyPath: "transform")
-        let transform = CATransform3DMakeScale(1.75, 1.75, 1.75)
-        animation.toValue = transform
-        animation.duration = Double(duration) as CFTimeInterval
-        animation.isCumulative = true
-        animation.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseInEaseOut)
-        view.layer.add(animation, forKey: "growAnimation")
-        CATransaction.commit()
-    }
+
     static func show() {
         sharedInstance.show()
     }
