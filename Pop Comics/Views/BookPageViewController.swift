@@ -114,11 +114,13 @@ extension BookPageViewController: UIScrollViewDelegate {
     
     fileprivate func updateConstraintsForSize(_ size: CGSize) {
         
-        let yOffset = max(0, (size.height - pageImageView.frame.height) / 2)
+        let yOffset = max(0, (size.height - pageImageView.frame.height) / 2.0)
         scrollTop.constant = yOffset
         scrollBottom.constant = yOffset
         
-        let xOffset = max(0, (size.width - pageImageView.frame.width) / 2)
+        // not sure what the deal is with this divisor
+            // just roll with it
+        let xOffset = max(0, (size.width - pageImageView.frame.width) / 2.0)
         scrollLeading.constant = xOffset
         scrollTrailing.constant = xOffset
         
