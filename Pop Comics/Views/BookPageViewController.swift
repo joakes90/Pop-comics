@@ -30,9 +30,14 @@ class BookPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         pageImageView.image = pageImage
-//        updateAspectRatioForSize(pageImage?.size ?? CGSize(width: 0, height: 0))
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let safeArea = view.safeAreaLayoutGuide.layoutFrame.size
+        updateConstraintsForSize(safeArea)
+//        updateAspectRatioForSize(pageImage?.size ?? CGSize(width: 0, height: 0))
+    }
 //    fileprivate func updateAspectRatioForSize(_ size: CGSize) {
 //        let ratio = size.width/size.height
 //        aspectRatio.constant = ratio
@@ -46,7 +51,7 @@ class BookPageViewController: UIViewController {
         
         scrollView.minimumZoomScale = minScale
         scrollView.zoomScale = minScale
-        scrollView.maximumZoomScale = 5
+        scrollView.maximumZoomScale = 10
     }
 
     override func viewWillLayoutSubviews() {
@@ -109,11 +114,11 @@ extension BookPageViewController: UIScrollViewDelegate {
     }
     
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
-        updateConstraintsForSize(view.bounds.size)
+        let safeArea = view.safeAreaLayoutGuide.layoutFrame.size
+        updateConstraintsForSize(safeArea)
     }
     
     fileprivate func updateConstraintsForSize(_ size: CGSize) {
-        
         let yOffset = max(0, (size.height - pageImageView.frame.height) / 2.0)
         scrollTop.constant = yOffset
         scrollBottom.constant = yOffset
