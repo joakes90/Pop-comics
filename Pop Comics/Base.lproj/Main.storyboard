@@ -95,23 +95,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTj-CU-Az1">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTj-CU-Az1">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uQz-UA-zDn">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="uQz-UA-zDn" secondAttribute="height" multiplier="375:667" id="GOF-dc-YQg"/>
+                                            <constraint firstAttribute="width" secondItem="uQz-UA-zDn" secondAttribute="height" multiplier="375:667" id="EDD-nl-hbY"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="uQz-UA-zDn" secondAttribute="trailing" id="5yh-X6-Rv6"/>
                                     <constraint firstItem="uQz-UA-zDn" firstAttribute="centerX" secondItem="DTj-CU-Az1" secondAttribute="centerX" id="Awa-kh-gb3"/>
                                     <constraint firstItem="uQz-UA-zDn" firstAttribute="top" secondItem="DTj-CU-Az1" secondAttribute="top" id="QRA-tB-5ZT"/>
                                     <constraint firstAttribute="bottom" secondItem="uQz-UA-zDn" secondAttribute="bottom" id="Ylx-L5-EhI"/>
-                                    <constraint firstAttribute="trailing" secondItem="uQz-UA-zDn" secondAttribute="trailing" id="YwF-gq-UjJ"/>
-                                    <constraint firstItem="uQz-UA-zDn" firstAttribute="leading" secondItem="DTj-CU-Az1" secondAttribute="leading" id="k3d-o2-UXi"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uQz-UA-zDn" secondAttribute="trailing" id="YwF-gq-UjJ"/>
+                                    <constraint firstItem="uQz-UA-zDn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="DTj-CU-Az1" secondAttribute="leading" id="k3d-o2-UXi"/>
                                     <constraint firstItem="uQz-UA-zDn" firstAttribute="centerY" secondItem="DTj-CU-Az1" secondAttribute="centerY" id="kQn-CS-Ns4"/>
                                     <constraint firstItem="uQz-UA-zDn" firstAttribute="top" secondItem="DTj-CU-Az1" secondAttribute="top" id="ljg-u1-fB6"/>
                                     <constraint firstAttribute="bottom" secondItem="uQz-UA-zDn" secondAttribute="bottom" id="nQi-6p-AyT"/>
@@ -126,12 +125,12 @@
                             <constraint firstItem="DTj-CU-Az1" firstAttribute="leading" secondItem="L9s-Ip-IaP" secondAttribute="leading" id="Mjl-7u-xUZ"/>
                             <constraint firstItem="DTj-CU-Az1" firstAttribute="top" secondItem="0uh-oh-dHO" secondAttribute="top" id="NJu-TM-U9h"/>
                             <constraint firstItem="DTj-CU-Az1" firstAttribute="trailing" secondItem="L9s-Ip-IaP" secondAttribute="trailing" id="PtC-vc-Xrl"/>
+                            <constraint firstItem="DTj-CU-Az1" firstAttribute="centerX" secondItem="L9s-Ip-IaP" secondAttribute="centerX" id="bpT-zU-aYL"/>
                             <constraint firstItem="DTj-CU-Az1" firstAttribute="bottom" secondItem="L9s-Ip-IaP" secondAttribute="bottom" id="yRb-Ch-sUw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="L9s-Ip-IaP"/>
                     </view>
                     <connections>
-                        <outlet property="aspectRatio" destination="GOF-dc-YQg" id="zLV-6E-eD0"/>
                         <outlet property="pageImageView" destination="uQz-UA-zDn" id="oyB-Vy-3gJ"/>
                         <outlet property="scrollBottom" destination="yRb-Ch-sUw" id="s4p-Mu-BTs"/>
                         <outlet property="scrollLeading" destination="Mjl-7u-xUZ" id="LSG-RU-wuK"/>

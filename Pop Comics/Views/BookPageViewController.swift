@@ -30,14 +30,14 @@ class BookPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         pageImageView.image = pageImage
-        updateAspectRatioForSize(pageImage?.size ?? CGSize(width: 0, height: 0))
+//        updateAspectRatioForSize(pageImage?.size ?? CGSize(width: 0, height: 0))
     }
     
-    fileprivate func updateAspectRatioForSize(_ size: CGSize) {
-        let ratio = size.width/size.height
-        aspectRatio.constant = ratio
-        view.layoutIfNeeded()
-    }
+//    fileprivate func updateAspectRatioForSize(_ size: CGSize) {
+//        let ratio = size.width/size.height
+//        aspectRatio.constant = ratio
+//        view.layoutIfNeeded()
+//    }
     
     fileprivate func updateMinScaleForSize(_ size: CGSize) {
         let widthScale = size.width / pageImageView.bounds.width
@@ -51,6 +51,11 @@ class BookPageViewController: UIViewController {
 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+        updateMinScaleForSize(view.bounds.size)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         updateMinScaleForSize(view.bounds.size)
     }
     override func didReceiveMemoryWarning() {
@@ -101,6 +106,23 @@ extension BookPageViewController: UIScrollViewDelegate {
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return pageImageView
+    }
+    
+    func scrollViewDidZoom(_ scrollView: UIScrollView) {
+        updateConstraintsForSize(view.bounds.size)
+    }
+    
+    fileprivate func updateConstraintsForSize(_ size: CGSize) {
+        
+        let yOffset = max(0, (size.height - pageImageView.frame.height) / 2)
+        scrollTop.constant = yOffset
+        scrollBottom.constant = yOffset
+        
+        let xOffset = max(0, (size.width - pageImageView.frame.width) / 2)
+        scrollLeading.constant = xOffset
+        scrollTrailing.constant = xOffset
+        
+        view.layoutIfNeeded()
     }
     
     func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
