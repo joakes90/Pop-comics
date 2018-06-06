@@ -16,15 +16,27 @@ class BookPageViewController: UIViewController {
     @IBOutlet weak var scrollTrailing: NSLayoutConstraint!
     @IBOutlet weak var scrollTop: NSLayoutConstraint!
     @IBOutlet weak var scrollBottom: NSLayoutConstraint!
+    @IBOutlet weak var aspectRatio: NSLayoutConstraint!
     
     
     var pageImage: UIImage?
     var delegate: BookViewDismissProtocol?
     var timer: Timer?
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         pageImageView.image = pageImage
+        updateAspectRatioForSize(pageImage?.size ?? CGSize(width: 0, height: 0))
+    }
+    
+    fileprivate func updateAspectRatioForSize(_ size: CGSize) {
+        let ratio = size.width/size.height
+        aspectRatio.constant = ratio
+        view.layoutIfNeeded()
     }
     
     fileprivate func updateMinScaleForSize(_ size: CGSize) {
@@ -88,7 +100,6 @@ class BookPageViewController: UIViewController {
 extension BookPageViewController: UIScrollViewDelegate {
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        print("zooming zooming zooming")
         return pageImageView
     }
     

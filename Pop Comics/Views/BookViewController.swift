@@ -14,6 +14,10 @@ class BookViewController: UIPageViewController, UIPageViewControllerDataSource {
     var book: Book?
     var bookViewControllers: [BookPageViewController]?
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource = self
