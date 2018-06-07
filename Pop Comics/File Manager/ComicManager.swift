@@ -162,6 +162,7 @@ class ComicManager {
         for page in book {
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BookPageViewController") as? BookPageViewController ?? BookPageViewController()
             vc.pageImage = page
+            vc.index = viewControllers.count
             viewControllers.append(vc)
         }
         return viewControllers
@@ -188,6 +189,17 @@ extension ComicManager {
             }
             DispatchQueue.main.async {
                 completion(metaData)
+            }
+        }
+    }
+    
+    static func saveCDStack() {
+        let coreDataQueue = DispatchQueue(label: "com.oakes.Pop-Comics.cdQueue")
+        coreDataQueue.async {
+            do {
+                try CDStack.sharedInstance().managedObjectContext.save()
+            } catch {
+                print("Failed to save core data context")
             }
         }
     }

@@ -22,6 +22,7 @@ class BookPageViewController: UIViewController {
     
     var pageImage: UIImage?
     var delegate: BookViewDismissProtocol?
+    var index: Int?
     var timer: Timer?
     
     override var prefersStatusBarHidden: Bool {
