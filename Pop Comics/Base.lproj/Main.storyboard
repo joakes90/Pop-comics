@@ -168,6 +168,7 @@
                         <viewLayoutGuide key="safeArea" id="L9s-Ip-IaP"/>
                     </view>
                     <connections>
+                        <outlet property="aspectRatio" destination="EDD-nl-hbY" id="GKe-4n-f4D"/>
                         <outlet property="pageImageView" destination="uQz-UA-zDn" id="oyB-Vy-3gJ"/>
                         <outlet property="scrollBottom" destination="yRb-Ch-sUw" id="s4p-Mu-BTs"/>
                         <outlet property="scrollLeading" destination="Mjl-7u-xUZ" id="LSG-RU-wuK"/>

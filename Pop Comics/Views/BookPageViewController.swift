@@ -38,29 +38,34 @@ class BookPageViewController: UIViewController {
         super.viewDidAppear(animated)
         let safeArea = view.safeAreaLayoutGuide.layoutFrame.size
         updateConstraintsForSize(safeArea)
-//        updateAspectRatioForSize(pageImage?.size ?? CGSize(width: 0, height: 0))
+        updateAspectRatioForSize(pageImage?.size ?? CGSize(width: 0, height: 0))
+        updateMinScaleForSize(view.bounds.size)
     }
-//    fileprivate func updateAspectRatioForSize(_ size: CGSize) {
-//        let ratio = size.width/size.height
-//        aspectRatio.constant = ratio
-//        view.layoutIfNeeded()
-//    }
+    fileprivate func updateAspectRatioForSize(_ size: CGSize) {
+        let ratio = size.width/size.height
+        aspectRatio.constant = ratio
+        view.layoutIfNeeded()
+    }
     
     fileprivate func updateMinScaleForSize(_ size: CGSize) {
-        let widthScale = size.width / pageImageView.bounds.width
-        let heightScale = size.height / pageImageView.bounds.height
-        let minScale = min(widthScale, heightScale)
+        let minWidthScale = size.width / pageImageView.bounds.width
+        let minHeightScale = size.height / pageImageView.bounds.height
+        let minScale = min(minWidthScale, minHeightScale)
+        
+        let maxWidthScale = size.width * 10
+        let maxHeightScale = size.height * 10
+        let maxScale = max(maxWidthScale, maxHeightScale)
         
         scrollView.minimumZoomScale = minScale
         scrollView.zoomScale = minScale
-        scrollView.maximumZoomScale = 10
+        scrollView.maximumZoomScale = maxScale
     }
-
+//
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         updateMinScaleForSize(view.bounds.size)
     }
-    
+//
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         updateMinScaleForSize(view.bounds.size)

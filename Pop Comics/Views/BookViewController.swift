@@ -33,12 +33,6 @@ class BookViewController: UIPageViewController, UIPageViewControllerDataSource, 
         book = ComicManager.openComic(at: path)
         bookViewControllers = ComicManager.pageViewControllers(for: book ?? Book())
         bookViewControllers?.forEach( { $0.delegate = self })
-//        if let firstViewController = bookViewControllers?.first {
-//            setViewControllers([firstViewController],
-//                               direction: UIPageViewControllerNavigationDirection.forward,
-//                               animated: true,
-//                               completion: nil)
-//        }
         if let viewControllers = bookViewControllers,
             let metadata = comicMetadata {
             let index = Int(metadata.openPage)
