@@ -17,6 +17,7 @@ class BookPageViewController: UIViewController {
     @IBOutlet weak var scrollTop: NSLayoutConstraint!
     @IBOutlet weak var scrollBottom: NSLayoutConstraint!
     @IBOutlet weak var aspectRatio: NSLayoutConstraint!
+    @IBOutlet weak var toolBar: UIView!
     
     
     var pageImage: UIImage?
@@ -74,36 +75,38 @@ class BookPageViewController: UIViewController {
     }
 
     @IBAction func toggleToolbarVisable(_ sender: Any) {
-//        if toolBar.isHidden {
-//                showToolbar()
-//        } else {
-//            hideToolbar()
-//        }
+        if toolBar.isHidden {
+                showToolbar()
+        } else {
+            hideToolbar()
+        }
     }
     
     fileprivate func showToolbar() {
-//        UIView.animate(withDuration: 0.25, animations: {
-//            self.toolBar.isHidden = false
-//            self.toolBar.layer.opacity = 1
-//        }) { (complete) in
-//            self.timer = Timer.scheduledTimer(timeInterval: 5.0,
-//                                              target: self,
-//                                              selector: #selector(self.hideToolbar),
-//                                              userInfo: nil,
-//                                              repeats: false)
-//
-//        }
+        toolBar.isHidden = false
+        toolBar.layer.opacity = 0
+        UIView.animate(withDuration: 0.5, animations: {
+            self.toolBar.layer.opacity = 1
+        }) { (complete) in
+            self.toolBar.layer.opacity = 1
+            self.timer = Timer.scheduledTimer(timeInterval: 3.0,
+                                              target: self,
+                                              selector: #selector(self.hideToolbar),
+                                              userInfo: nil,
+                                              repeats: false)
+
+        }
     }
     
     @objc fileprivate func hideToolbar() {
-//        UIView.animate(withDuration: 0.5, animations: {
-//            self.toolBar.layer.opacity = 0
-//        }) { (complete) in
-//            if complete {
-//                self.toolBar.isHidden = true
-//                self.timer?.invalidate()
-//            }
-//        }
+        UIView.animate(withDuration: 0.5, animations: {
+            self.toolBar.layer.opacity = 0
+        }) { (complete) in
+            if complete {
+                self.toolBar.isHidden = true
+                self.timer?.invalidate()
+            }
+        }
     }
 }
 
