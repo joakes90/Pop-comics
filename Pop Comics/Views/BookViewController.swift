@@ -25,7 +25,6 @@ class BookViewController: UIPageViewController, UIPageViewControllerDataSource {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        ProgressView.show()
         guard let path = URL(string: (comicMetadata?.url) ?? "")?.path else {
             dismiss(animated: true, completion: nil)
             return

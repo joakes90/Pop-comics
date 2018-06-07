@@ -38,6 +38,7 @@ class BrowserViewController: UIViewController {
             let selectedMetadata = comicMetadata?[indexPath.row] else {
                 return
         }
+        ProgressView.show()
         destination.comicMetadata  = selectedMetadata
     }
     
