@@ -22,7 +22,7 @@ class BookViewController: UIPageViewController, UIPageViewControllerDataSource, 
         super.viewDidLoad()
         dataSource = self
         delegate = self
-        // Do any additional setup after loading the view.
+        userActivity = comicMetadata?.userActivity
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -43,6 +43,9 @@ class BookViewController: UIPageViewController, UIPageViewControllerDataSource, 
         }
     }
     
+    override func updateUserActivityState(_ activity: NSUserActivity) {
+        activity.addUserInfoEntries(from: (comicMetadata?.userActivityUserInfo) ?? [:])
+    }
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
         return bookViewControllers?.count ?? 0
     }
