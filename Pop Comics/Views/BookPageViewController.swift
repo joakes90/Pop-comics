@@ -18,11 +18,14 @@ class BookPageViewController: UIViewController {
     @IBOutlet weak var scrollBottom: NSLayoutConstraint!
     @IBOutlet weak var aspectRatio: NSLayoutConstraint!
     @IBOutlet weak var toolBar: UIView!
+    @IBOutlet weak var pageLabel: UILabel!
     
     
     var pageImage: UIImage?
     var delegate: BookViewDismissProtocol?
     var index: Int?
+    var pageNumber: Int?
+    var totalPages: Int?
     var timer: Timer?
     
     override var prefersStatusBarHidden: Bool {
@@ -32,6 +35,7 @@ class BookPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         pageImageView.image = pageImage
+        pageLabel.text = "\(pageNumber ?? 0) of \(totalPages ?? 0)"
     }
     
     override func viewDidAppear(_ animated: Bool) {

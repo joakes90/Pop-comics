@@ -32,7 +32,12 @@ class BookViewController: UIPageViewController, UIPageViewControllerDataSource, 
         }
         book = ComicManager.openComic(at: path)
         bookViewControllers = ComicManager.pageViewControllers(for: book ?? Book())
-        bookViewControllers?.forEach( { $0.delegate = self })
+        bookViewControllers?.forEach({ (viewController) in
+            viewController.delegate = self
+            let currentIndex = bookViewControllers?.index(of: viewController)
+            viewController.pageNumber = (currentIndex ?? 0) + 1
+            viewController.totalPages = bookViewControllers?.count
+        })
         if let viewControllers = bookViewControllers,
             let metadata = comicMetadata {
             let index = Int(metadata.openPage)

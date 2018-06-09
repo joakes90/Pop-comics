@@ -145,12 +145,20 @@
                                             <action selector="dismissBookView:" destination="bfu-91-n4v" eventType="touchUpInside" id="1Ca-CF-Fsf"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X of X" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvb-Pa-n0b">
+                                        <rect key="frame" x="183" y="33" width="48.666666666666657" height="25.666666666666671"/>
+                                        <fontDescription key="fontDescription" name="BadaBoomBB" family="BadaBoom BB" pointSize="24"/>
+                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59861905809859151" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="nvb-Pa-n0b" firstAttribute="centerX" secondItem="afT-d2-Ef2" secondAttribute="centerX" id="2wX-Dj-h90"/>
                                     <constraint firstAttribute="bottom" secondItem="oUj-2N-Ruq" secondAttribute="bottom" id="F8B-AY-NfY"/>
                                     <constraint firstItem="oUj-2N-Ruq" firstAttribute="leading" secondItem="afT-d2-Ef2" secondAttribute="leading" constant="8" id="VFa-Lk-sRv"/>
                                     <constraint firstAttribute="height" constant="65" id="d5c-Ee-RwX"/>
+                                    <constraint firstItem="nvb-Pa-n0b" firstAttribute="centerY" secondItem="oUj-2N-Ruq" secondAttribute="centerY" id="yWD-ZB-2LF"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -170,6 +178,7 @@
                     <connections>
                         <outlet property="aspectRatio" destination="EDD-nl-hbY" id="GKe-4n-f4D"/>
                         <outlet property="pageImageView" destination="uQz-UA-zDn" id="oyB-Vy-3gJ"/>
+                        <outlet property="pageLabel" destination="nvb-Pa-n0b" id="QqK-yq-ZZt"/>
                         <outlet property="scrollBottom" destination="yRb-Ch-sUw" id="s4p-Mu-BTs"/>
                         <outlet property="scrollLeading" destination="Mjl-7u-xUZ" id="LSG-RU-wuK"/>
                         <outlet property="scrollTop" destination="nfc-2d-gFQ" id="9Bf-1y-cjd"/>
