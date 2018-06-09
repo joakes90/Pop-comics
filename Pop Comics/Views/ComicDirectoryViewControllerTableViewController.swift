@@ -17,8 +17,16 @@ class ComicDirectoryViewControllerTableViewController: UITableViewController {
         let backButton = UIBarButtonItem(title: nil, style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backButton
         sections = FileController.shared.comicPathsBySection()
+        refreshControl = UIRefreshControl()
+        refreshControl?.tintColor = UIColor.yellow
+        refreshControl?.addTarget(self,
+                                  action: #selector(refresh),
+                                  for: .valueChanged)
     }
-
+    
+    @objc func refresh() {
+        print("Hello")
+    }
 
     // MARK: - Table view data source
 
