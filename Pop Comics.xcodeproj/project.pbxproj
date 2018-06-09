@@ -22,7 +22,6 @@
 		D0BB907420ABAD5E00590A93 /* Metadata.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0BB907220ABAD5E00590A93 /* Metadata.xcdatamodeld */; };
 		D0BB908A20ABB1F200590A93 /* CDStack.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BB908920ABB1F200590A93 /* CDStack.m */; };
 		D0BB908F20ABC9CE00590A93 /* ComicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BB908E20ABC9CE00590A93 /* ComicCollectionViewCell.swift */; };
-		D0BCBB2020CA285400AD20E9 /* ComicSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BCBB1F20CA285400AD20E9 /* ComicSearch.swift */; };
 		D0D4364D20A7E2DD00A18713 /* ComicDirectoryViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D4364C20A7E2DD00A18713 /* ComicDirectoryViewControllerTableViewController.swift */; };
 		D0D4364F20A7E40A00A18713 /* FileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D4364E20A7E40A00A18713 /* FileController.swift */; };
 		D0E4B5CC20BB625200C1A2F3 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E4B5CB20BB625200C1A2F3 /* ProgressView.swift */; };
@@ -51,7 +50,6 @@
 		D0BB908920ABB1F200590A93 /* CDStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDStack.m; sourceTree = "<group>"; };
 		D0BB908D20ABB4F100590A93 /* Pop-Comics-BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pop-Comics-BridgingHeader.h"; sourceTree = "<group>"; };
 		D0BB908E20ABC9CE00590A93 /* ComicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicCollectionViewCell.swift; sourceTree = "<group>"; };
-		D0BCBB1F20CA285400AD20E9 /* ComicSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicSearch.swift; sourceTree = "<group>"; };
 		D0D4364C20A7E2DD00A18713 /* ComicDirectoryViewControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDirectoryViewControllerTableViewController.swift; sourceTree = "<group>"; };
 		D0D4364E20A7E40A00A18713 /* FileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileController.swift; sourceTree = "<group>"; };
 		D0E4B5CB20BB625200C1A2F3 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
@@ -112,7 +110,6 @@
 			children = (
 				D003B836204F9752005500AD /* ComicManager.swift */,
 				D0D4364E20A7E40A00A18713 /* FileController.swift */,
-				D0BCBB1F20CA285400AD20E9 /* ComicSearch.swift */,
 			);
 			path = "File Manager";
 			sourceTree = "<group>";
@@ -321,7 +318,6 @@
 				D0E4B5CC20BB625200C1A2F3 /* ProgressView.swift in Sources */,
 				D054FA5C20C3684A00A7BA37 /* BookViewController.swift in Sources */,
 				D0BB907420ABAD5E00590A93 /* Metadata.xcdatamodeld in Sources */,
-				D0BCBB2020CA285400AD20E9 /* ComicSearch.swift in Sources */,
 				D0D4364F20A7E40A00A18713 /* FileController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

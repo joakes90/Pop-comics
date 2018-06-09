@@ -105,19 +105,17 @@ class FileController {
     
     func cleanTmp() {
         let cleanDirQueue = DispatchQueue(label: "com.oakes.Pop-Comics.clean")
-        cleanDirQueue.async {
-            let fileManager = FileManager.default
-            let tmpDir = fileManager.temporaryDirectory
-            do {
-                let files = try fileManager.contentsOfDirectory(at: tmpDir,
-                                                                includingPropertiesForKeys: nil,
-                                                                options: .skipsHiddenFiles)
-                for file in files {
-                    try fileManager.removeItem(at: file)
-                }
-            } catch {
-                print(error.localizedDescription)
+        let fileManager = FileManager.default
+        let tmpDir = fileManager.temporaryDirectory
+        do {
+            let files = try fileManager.contentsOfDirectory(at: tmpDir,
+                                                        includingPropertiesForKeys: nil,
+                                                        options: .skipsHiddenFiles)
+            for file in files {
+                try fileManager.removeItem(at: file)
             }
+        } catch {
+            print(error.localizedDescription)
         }
     }
     
