@@ -25,7 +25,9 @@ class ComicDirectoryViewControllerTableViewController: UITableViewController {
     }
     
     @objc func refresh() {
-        print("Hello")
+        sections = FileController.shared.comicPathsBySection()
+        tableView.reloadData()
+        refreshControl?.endRefreshing()
     }
 
     // MARK: - Table view data source
