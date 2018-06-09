@@ -85,7 +85,7 @@
         <!--Book View Controller-->
         <scene sceneID="Be4-UL-pSn">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="MZY-Ai-WFa" customClass="BookViewController" customModule="Pop_Comics" customModuleProvider="target" sceneMemberID="viewController">
+                <pageViewController storyboardIdentifier="bookView" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="MZY-Ai-WFa" customClass="BookViewController" customModule="Pop_Comics" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedTopBarMetrics"/>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bns-gd-kdY" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -17,7 +17,7 @@ class BrowserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Configure collection View
+        
         flowLayout.minimumLineSpacing = 8.0
         flowLayout.minimumInteritemSpacing = 2.0
         flowLayout.itemSize = CGSize(width: 150, height: 234)
@@ -29,7 +29,19 @@ class BrowserViewController: UIViewController {
         if comicPath.isDirectory {
             openComicDir(url: comicPath.url)
         } else {
-//            presentComicViewer()
+            ProgressView.show()
+            ComicManager.retreaveMetadata(for: [comicPath]) { (metaData) in
+                let md = metaData.first
+                let bookViewController = self.storyboard?.instantiateViewController(withIdentifier: "bookView") as? BookViewController
+                bookViewController?.comicMetadata = md
+                DispatchQueue.main.async {
+                    self.present(bookViewController ?? BookViewController(),
+                                 animated: true,
+                                 completion: {
+                                    ProgressView.hide()
+                    })
+                }
+            }
         }
     }
     
@@ -88,16 +100,4 @@ extension BrowserViewController: UICollectionViewDataSource {
         return cell
     }
     
-}
-
-extension BrowserViewController: UICollectionViewDelegate {
-
-//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//        guard let cell = cell as? ComicCollectionViewCell,
-//        let comicPath = comics?[indexPath.row] else {
-//            return
-//        }
-//        cell.nameLabel.text = comicPath.name
-//        cell.retreaveMetaData(for: comicPath)
-//    }
 }
