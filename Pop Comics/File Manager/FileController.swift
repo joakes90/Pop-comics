@@ -119,6 +119,13 @@ class FileController {
         }
     }
     
+    func comicPathAt(url: URL) -> ComicPath {
+        return ComicPath(name: (url.lastPathComponent as NSString).deletingPathExtension,
+                                  url: url,
+                                  isDirectory: false,
+                                  UUID: UUIDforFile(file: url))
+        
+    }
     fileprivate func fileIsDirectory(url: URL) -> Bool {
         let fileManager = FileManager.default
         var isDirectory: ObjCBool = false

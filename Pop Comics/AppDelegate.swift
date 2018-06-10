@@ -21,8 +21,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        print("hello")
-        
+        let comicPath = FileController.shared.comicPathAt(url: url)
+        ComicManager.retreaveMetadata(for: [comicPath]) { (metaData) in
+            guard let md = metaData.first else {
+                return
+            }
+            let bookView = BookViewController()
+            bookView.comicMetadata = md
+            UIApplication.shared.keyWindow?.rootViewController?.present(bookView,
+                                                                        animated: true,
+                                                                        completion: nil)
+            
+        }
         return true
     }
     func applicationWillResignActive(_ application: UIApplication) {

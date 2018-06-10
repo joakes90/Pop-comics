@@ -90,11 +90,11 @@ extension BrowserViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let comicPath = comics![indexPath.row]
-        // TODO: handel unwrapping
-        let comic = comicMetadata![indexPath.row]
-        //TODO: handel unwrapping
-        let coverImage = UIImage(data: comic.coverImage!) ?? #imageLiteral(resourceName: "genaricComic")
+        guard let metaData = comicMetadata else {
+            return UICollectionViewCell()
+        }
+        let comic = metaData[indexPath.row]
+        let coverImage = UIImage(data: comic.coverImage ?? Data()) ?? #imageLiteral(resourceName: "genaricComic")
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "comicCell", for: indexPath) as? ComicCollectionViewCell ?? ComicCollectionViewCell()
         cell.coverImageView.image = coverImage
         return cell
