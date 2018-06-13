@@ -104,7 +104,7 @@
                                 <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                                 <subviews>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uQz-UA-zDn">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="402.66666666666669" height="716"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="uQz-UA-zDn" secondAttribute="height" multiplier="375:667" id="EDD-nl-hbY"/>
@@ -115,11 +115,11 @@
                                     </imageView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="uQz-UA-zDn" firstAttribute="centerX" secondItem="DTj-CU-Az1" secondAttribute="centerX" id="Awa-kh-gb3"/>
+                                    <constraint firstItem="uQz-UA-zDn" firstAttribute="centerX" secondItem="DTj-CU-Az1" secondAttribute="centerX" priority="250" id="Awa-kh-gb3"/>
                                     <constraint firstItem="uQz-UA-zDn" firstAttribute="top" secondItem="DTj-CU-Az1" secondAttribute="top" id="QRA-tB-5ZT"/>
                                     <constraint firstAttribute="bottom" secondItem="uQz-UA-zDn" secondAttribute="bottom" id="Ylx-L5-EhI"/>
                                     <constraint firstAttribute="trailing" secondItem="uQz-UA-zDn" secondAttribute="trailing" id="YwF-gq-UjJ"/>
-                                    <constraint firstItem="uQz-UA-zDn" firstAttribute="centerY" secondItem="DTj-CU-Az1" secondAttribute="centerY" priority="750" id="jVq-hC-aSq"/>
+                                    <constraint firstItem="uQz-UA-zDn" firstAttribute="centerY" secondItem="DTj-CU-Az1" secondAttribute="centerY" priority="250" id="jVq-hC-aSq"/>
                                     <constraint firstItem="uQz-UA-zDn" firstAttribute="leading" secondItem="DTj-CU-Az1" secondAttribute="leading" id="k3d-o2-UXi"/>
                                     <constraint firstItem="uQz-UA-zDn" firstAttribute="top" secondItem="DTj-CU-Az1" secondAttribute="top" id="ljg-u1-fB6"/>
                                     <constraint firstAttribute="bottom" secondItem="uQz-UA-zDn" secondAttribute="bottom" id="nQi-6p-AyT"/>

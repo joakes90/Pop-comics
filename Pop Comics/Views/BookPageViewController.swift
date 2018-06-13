@@ -53,6 +53,8 @@ class BookPageViewController: UIViewController {
     }
     
     fileprivate func updateMinScaleForSize(_ size: CGSize) {
+        let safeArea = view.safeAreaLayoutGuide.layoutFrame.size
+        updateConstraintsForSize(safeArea)
         let minWidthScale = size.width / pageImageView.bounds.width
         let minHeightScale = size.height / pageImageView.bounds.height
         let minScale = min(minWidthScale, minHeightScale)
@@ -134,22 +136,21 @@ extension BookPageViewController: UIScrollViewDelegate {
     }
     
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
-        let safeArea = view.safeAreaLayoutGuide.layoutFrame.size
-        updateConstraintsForSize(safeArea)
+//        let safeArea = view.safeAreaLayoutGuide.layoutFrame.size
+//        updateConstraintsForSize(safeArea)
     }
     
     fileprivate func updateConstraintsForSize(_ size: CGSize) {
         let yOffset = max(0, (size.height - pageImageView.frame.height) / 2.0)
         scrollTop.constant = yOffset
         scrollBottom.constant = yOffset
-        
+//
         // not sure what the deal is with this divisor
             // just roll with it
         let xOffset = max(0, (size.width - pageImageView.frame.width) / 2.0)
         scrollLeading.constant = xOffset
         scrollTrailing.constant = xOffset
-        
-        view.layoutIfNeeded()
+//        scrollView.contentOffset = CGPoint(x: xOffset, y: yOffset)
     }
     
     func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
