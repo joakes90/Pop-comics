@@ -151,13 +151,26 @@
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P6B-hb-PWM">
+                                        <rect key="frame" x="381" y="32.666666666666664" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="Lm5-iY-0St"/>
+                                            <constraint firstAttribute="width" constant="25" id="yYm-7L-aK7"/>
+                                        </constraints>
+                                        <state key="normal" image="layout"/>
+                                        <connections>
+                                            <segue destination="2Fe-u6-niP" kind="presentation" id="Cmy-4S-D7p"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59861905809859151" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="nvb-Pa-n0b" firstAttribute="centerX" secondItem="afT-d2-Ef2" secondAttribute="centerX" id="2wX-Dj-h90"/>
                                     <constraint firstAttribute="bottom" secondItem="oUj-2N-Ruq" secondAttribute="bottom" id="F8B-AY-NfY"/>
+                                    <constraint firstItem="P6B-hb-PWM" firstAttribute="centerY" secondItem="oUj-2N-Ruq" secondAttribute="centerY" id="OPH-9N-uET"/>
                                     <constraint firstItem="oUj-2N-Ruq" firstAttribute="leading" secondItem="afT-d2-Ef2" secondAttribute="leading" constant="8" id="VFa-Lk-sRv"/>
                                     <constraint firstAttribute="height" constant="65" id="d5c-Ee-RwX"/>
+                                    <constraint firstAttribute="trailing" secondItem="P6B-hb-PWM" secondAttribute="trailing" constant="8" id="sUL-1L-eDg"/>
                                     <constraint firstItem="nvb-Pa-n0b" firstAttribute="centerY" secondItem="oUj-2N-Ruq" secondAttribute="centerY" id="yWD-ZB-2LF"/>
                                 </constraints>
                             </view>
@@ -195,6 +208,60 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1156.521739130435" y="1019.8369565217392"/>
+        </scene>
+        <!--Pages Collection View Controller-->
+        <scene sceneID="Ch2-je-hiw">
+            <objects>
+                <viewController id="2Fe-u6-niP" customClass="PagesCollectionViewController" customModule="Pop_Comics" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="smZ-cL-MpZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SA8-dx-VdG">
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Odk-j0-pDa">
+                                    <size key="itemSize" width="150" height="224"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="h7N-XB-sCW" customClass="PageCollectionViewCell" customModule="Pop_Comics" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="224"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="224"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="genaricComic" translatesAutoresizingMaskIntoConstraints="NO" id="MvD-CR-LRe">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="224"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="MvD-CR-LRe" secondAttribute="trailing" id="5TA-XV-nup"/>
+                                            <constraint firstItem="MvD-CR-LRe" firstAttribute="top" secondItem="h7N-XB-sCW" secondAttribute="top" id="OCA-Ak-130"/>
+                                            <constraint firstItem="MvD-CR-LRe" firstAttribute="leading" secondItem="h7N-XB-sCW" secondAttribute="leading" id="PTr-Lc-DZj"/>
+                                            <constraint firstAttribute="bottom" secondItem="MvD-CR-LRe" secondAttribute="bottom" id="RVv-PU-s1X"/>
+                                        </constraints>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="SA8-dx-VdG" firstAttribute="bottom" secondItem="SBm-df-peW" secondAttribute="bottom" id="2R4-sS-uWF"/>
+                            <constraint firstItem="SA8-dx-VdG" firstAttribute="top" secondItem="SBm-df-peW" secondAttribute="top" id="YbJ-QJ-lvH"/>
+                            <constraint firstItem="SA8-dx-VdG" firstAttribute="leading" secondItem="SBm-df-peW" secondAttribute="leading" id="sby-og-htf"/>
+                            <constraint firstItem="SA8-dx-VdG" firstAttribute="trailing" secondItem="SBm-df-peW" secondAttribute="trailing" id="yWl-yY-AmW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SBm-df-peW"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AWm-uQ-4kN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2002.8985507246377" y="1019.8369565217392"/>
         </scene>
         <!--Pop Comics-->
         <scene sceneID="Qxz-vr-qNr">
@@ -262,6 +329,7 @@
     </scenes>
     <resources>
         <image name="genaricComic" width="150" height="233"/>
+        <image name="layout" width="35" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="P8S-l2-jYC"/>
