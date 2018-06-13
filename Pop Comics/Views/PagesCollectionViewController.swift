@@ -12,6 +12,7 @@ class PagesCollectionViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     var book: Book?
+    var delegate: skipPageManagment?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,24 +25,30 @@ class PagesCollectionViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        print(book)
-    }
-
 }
 
-//extension PagesCollectionViewController: UICollectionViewDataSource {
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return book?.count ?? 0
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        <#code#>
-//    }
-//    
-//    
-//}
-//
-//extension PagesCollectionViewController: UICollectionViewDelegate {
-//    
-//}
+extension PagesCollectionViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return book?.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pageCell", for: indexPath) as? PageCollectionViewCell ?? PageCollectionViewCell()
+        cell.pageImageview.image = book?[indexPath.row] ?? #imageLiteral(resourceName: "genaricComic")
+        return cell
+    }
+    
+    
+}
+
+extension PagesCollectionViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        dismiss(animated: true, completion: nil)
+        delegate?.skipTo(page: indexPath.row)
+    }
+}
+
+protocol skipPageManagment {
+    func skipTo(page: Int)
+}

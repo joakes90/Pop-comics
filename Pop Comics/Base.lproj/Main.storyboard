@@ -245,8 +245,15 @@
                                             <constraint firstItem="MvD-CR-LRe" firstAttribute="leading" secondItem="h7N-XB-sCW" secondAttribute="leading" id="PTr-Lc-DZj"/>
                                             <constraint firstAttribute="bottom" secondItem="MvD-CR-LRe" secondAttribute="bottom" id="RVv-PU-s1X"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="pageImageview" destination="MvD-CR-LRe" id="wN8-az-P8Z"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="2Fe-u6-niP" id="7ec-8s-m1J"/>
+                                    <outlet property="delegate" destination="2Fe-u6-niP" id="1FY-Ys-bEf"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

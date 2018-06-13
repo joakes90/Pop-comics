@@ -26,6 +26,12 @@ class BookViewController: UIPageViewController, UIPageViewControllerDataSource, 
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        if bookViewControllers == nil {
+            setUp()
+        }
+    }
+    
+    private func setUp() {
         guard let path = URL(string: (comicMetadata?.url) ?? "")?.path else {
             dismiss(animated: true, completion: nil)
             return
@@ -43,9 +49,9 @@ class BookViewController: UIPageViewController, UIPageViewControllerDataSource, 
             let metadata = comicMetadata {
             let index = Int(metadata.openPage)
             openTo(page: index, in: viewControllers)
-        reloadInputViews()
-        comicMetadata?.read = true
-        ProgressView.hide()
+            reloadInputViews()
+            comicMetadata?.read = true
+            ProgressView.hide()
         }
     }
     
@@ -55,6 +61,7 @@ class BookViewController: UIPageViewController, UIPageViewControllerDataSource, 
     
     private func openTo(page: Int, in viewControllers: [BookPageViewController]) {
         let openPage = viewControllers[page]
+        comicMetadata?.openPage = Int16(page)
         setViewControllers([openPage],
                            direction: .forward,
                            animated: false,
@@ -95,6 +102,14 @@ extension BookViewController: BookViewDismissProtocol {
             self.bookViewControllers = nil
         }
     }
+}
+
+extension BookViewController: skipPageManagment {
+    
+    func skipTo(page: Int) {
+        openTo(page: page, in: bookViewControllers ?? [])
+    }
+    
 }
 
 protocol BookViewDismissProtocol {

@@ -10,4 +10,5 @@ import UIKit
 
 class PageCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var pageImageview: UIImageView!
 }

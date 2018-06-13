@@ -65,12 +65,12 @@ class BookPageViewController: UIViewController {
         scrollView.zoomScale = minScale
         scrollView.maximumZoomScale = maxScale
     }
-//
+
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         updateMinScaleForSize(view.bounds.size)
     }
-//
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         updateMinScaleForSize(view.bounds.size)
@@ -80,7 +80,6 @@ class BookPageViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     @IBAction func dismissBookView(_ sender: Any) {
         delegate?.dismissPageView()
     }
@@ -123,6 +122,7 @@ class BookPageViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? PagesCollectionViewController {
             destination.book = bookViewController?.book
+            destination.delegate = bookViewController
         }
     }
 }
