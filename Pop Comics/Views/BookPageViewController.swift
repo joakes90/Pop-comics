@@ -118,6 +118,12 @@ class BookPageViewController: UIViewController {
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? PagesCollectionViewController {
+            destination.book = //Get the book item
+        }
+    }
 }
 
 extension BookPageViewController: UIScrollViewDelegate {

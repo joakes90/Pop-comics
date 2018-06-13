@@ -159,7 +159,7 @@
                                         </constraints>
                                         <state key="normal" image="layout"/>
                                         <connections>
-                                            <segue destination="2Fe-u6-niP" kind="presentation" id="Cmy-4S-D7p"/>
+                                            <segue destination="2Fe-u6-niP" kind="presentation" identifier="pagesSegue" id="Cmy-4S-D7p"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -227,7 +227,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="h7N-XB-sCW" customClass="PageCollectionViewCell" customModule="Pop_Comics" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="pageCell" id="h7N-XB-sCW" customClass="PageCollectionViewCell" customModule="Pop_Comics" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="224"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -258,6 +258,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SBm-df-peW"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="SA8-dx-VdG" id="4LG-aW-Hj7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AWm-uQ-4kN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
