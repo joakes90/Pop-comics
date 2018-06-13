@@ -27,6 +27,7 @@ class BookPageViewController: UIViewController {
     var pageNumber: Int?
     var totalPages: Int?
     var timer: Timer?
+    weak var bookViewController: BookViewController?
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -121,7 +122,7 @@ class BookPageViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? PagesCollectionViewController {
-            destination.book = //Get the book item
+            destination.book = bookViewController?.book
         }
     }
 }

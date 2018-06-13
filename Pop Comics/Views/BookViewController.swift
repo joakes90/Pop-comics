@@ -37,6 +37,7 @@ class BookViewController: UIPageViewController, UIPageViewControllerDataSource, 
             let currentIndex = bookViewControllers?.index(of: viewController)
             viewController.pageNumber = (currentIndex ?? 0) + 1
             viewController.totalPages = bookViewControllers?.count
+            viewController.bookViewController = self
         })
         if let viewControllers = bookViewControllers,
             let metadata = comicMetadata {
