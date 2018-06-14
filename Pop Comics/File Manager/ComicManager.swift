@@ -215,6 +215,7 @@ extension ComicManager {
         do {
             let metadata = try context?.fetch(fetchRequest).first
             metadata?.setValue(comic.url.absoluteString, forKey: "url")
+            metadata?.setValue(comic.name, forKey: "name")
             return metadata
         } catch {
             print(error.localizedDescription)
