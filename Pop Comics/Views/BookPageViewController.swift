@@ -12,10 +12,6 @@ class BookPageViewController: UIViewController {
 
     @IBOutlet weak var pageImageView: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var scrollLeading: NSLayoutConstraint!
-    @IBOutlet weak var scrollTrailing: NSLayoutConstraint!
-    @IBOutlet weak var scrollTop: NSLayoutConstraint!
-    @IBOutlet weak var scrollBottom: NSLayoutConstraint!
     @IBOutlet weak var aspectRatio: NSLayoutConstraint!
     @IBOutlet weak var toolBar: UIView!
     @IBOutlet weak var pageLabel: UILabel!
@@ -142,25 +138,14 @@ extension BookPageViewController: UIScrollViewDelegate {
     }
     
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
-//        let safeAreaWidth = view.safeAreaLayoutGuide.layoutFrame.size.width
-//        let imageWidth = pageImageView.image?.size.width
-//        scrollLeading.constant = (safeAreaWidth - imageWidth!) / 2
-//        scrollTrailing.constant = (safeAreaWidth - imageWidth!) / 2
+
     }
     
     fileprivate func updateConstraintsForSize(_ size: CGSize) {
         let yOffset = max(0, (size.height - pageImageView.frame.height) / 2.0)
-        scrollTop.constant = yOffset
-        scrollBottom.constant = yOffset
-
-        // not sure what the deal is with this divisor
-            // just roll with it
         let xOffset = max(0, (size.width - pageImageView.frame.width) / 2.0)
-        scrollLeading.constant = xOffset
-        scrollTrailing.constant = xOffset
         scrollView.contentInsetAdjustmentBehavior = .automatic
         scrollView.contentInset = UIEdgeInsets(top: yOffset, left: xOffset, bottom: yOffset, right: xOffset)
-//        scrollView.contentOffset = CGPoint(x: xOffset, y: yOffset)
     }
     
     func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {

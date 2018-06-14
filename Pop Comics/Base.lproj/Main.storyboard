@@ -191,10 +191,6 @@
                         <outlet property="aspectRatio" destination="EDD-nl-hbY" id="GKe-4n-f4D"/>
                         <outlet property="pageImageView" destination="uQz-UA-zDn" id="oyB-Vy-3gJ"/>
                         <outlet property="pageLabel" destination="nvb-Pa-n0b" id="QqK-yq-ZZt"/>
-                        <outlet property="scrollBottom" destination="yRb-Ch-sUw" id="s4p-Mu-BTs"/>
-                        <outlet property="scrollLeading" destination="Mjl-7u-xUZ" id="LSG-RU-wuK"/>
-                        <outlet property="scrollTop" destination="nfc-2d-gFQ" id="9Bf-1y-cjd"/>
-                        <outlet property="scrollTrailing" destination="PtC-vc-Xrl" id="FOb-tj-Zo5"/>
                         <outlet property="scrollView" destination="DTj-CU-Az1" id="FLx-vB-SIo"/>
                         <outlet property="toolBar" destination="afT-d2-Ef2" id="rL1-xh-ofw"/>
                     </connections>
