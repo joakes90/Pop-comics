@@ -321,7 +321,7 @@
         <!--Split View Controller-->
         <scene sceneID="lAv-8G-Pk7">
             <objects>
-                <splitViewController id="nn8-4J-jts" sceneMemberID="viewController">
+                <splitViewController id="nn8-4J-jts" customClass="SplitViewController" customModule="Pop_Comics" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="k8m-NC-hZg" kind="relationship" relationship="masterViewController" id="VdQ-IO-0aD"/>
                         <segue destination="sSh-iq-j9D" kind="relationship" relationship="detailViewController" id="zrC-lu-jl5"/>
@@ -337,6 +337,6 @@
         <image name="layout" width="35" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="P8S-l2-jYC"/>
+        <segue reference="zrC-lu-jl5"/>
     </inferredMetricsTieBreakers>
 </document>
