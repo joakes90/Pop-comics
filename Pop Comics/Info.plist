@@ -17,13 +17,15 @@
 			</array>
 		</dict>
 		<dict>
+			<key>CFBundleTypeIconFiles</key>
+			<array/>
 			<key>CFBundleTypeName</key>
 			<string>Comic Book RAR Archive</string>
 			<key>LSHandlerRank</key>
 			<string>Alternate</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>com.oakes.comic-book-rar-archive</string>
+				<string>com.oakes.Pop-Comics.cbr</string>
 			</array>
 		</dict>
 		<dict>
@@ -39,13 +41,15 @@
 			</array>
 		</dict>
 		<dict>
+			<key>CFBundleTypeIconFiles</key>
+			<array/>
 			<key>CFBundleTypeName</key>
 			<string>Comic Book TAR Archive</string>
 			<key>LSHandlerRank</key>
 			<string>Alternate</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>com.oakes.comic-book-tar-archive</string>
+				<string>com.oakes.Pop-Comics.cbt</string>
 			</array>
 		</dict>
 	</array>

@@ -60,6 +60,7 @@ class BrowserViewController: UIViewController {
             ComicManager.retreaveMetadata(for: comics, completion: { (metaData) in
                 self.comicMetadata = metaData.sorted(by: { ($0.name ?? "AAA") < ($1.name ?? "BBB")})
                 self.collectionView.reloadData()
+                metaData.forEach({ $0.delegate = self })
                 ProgressView.hide()
             })
         }
@@ -99,5 +100,19 @@ extension BrowserViewController: UICollectionViewDataSource {
         cell.coverImageView.image = coverImage
         return cell
     }
+    
+}
+
+extension BrowserViewController: MetadataUpdateDelegate {
+    
+    func didUpdateCover(for object: Metadata) {
+        if let cellIndex = comicMetadata?.index(of: object),
+            let data = object.coverImage {
+            let image = UIImage(data: data)
+            let cell = collectionView.cellForItem(at: IndexPath(row: cellIndex, section: 0)) as? ComicCollectionViewCell
+            cell?.coverImageView.image = image
+        }
+    }
+    
     
 }

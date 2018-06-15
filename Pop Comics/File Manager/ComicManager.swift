@@ -24,9 +24,9 @@ enum extensions: String {
     case pdf
     case PDF
 }
-class ComicManager {
+class ComicManager: NSObject {
     
-    static func openComic(at path: String) -> Book? {
+    @objc static func openComic(at path: String) -> Book? {
         let url = URL(fileURLWithPath: path)
         guard let ext = extensions(rawValue: url.pathExtension) else {
             return nil
@@ -224,8 +224,6 @@ extension ComicManager {
     }
     
     fileprivate static func createMetadata(for comic: ComicPath) -> Metadata? {
-        let images = self.openComic(at: comic.url.path)
-        let cover = UIImagePNGRepresentation((images?.first ?? #imageLiteral(resourceName: "genaricComic")))
         let name = (comic.url.lastPathComponent as NSString).deletingPathExtension
         let context = CDStack.sharedInstance().managedObjectContext
         let entityDiscription = NSEntityDescription.entity(forEntityName: "Metadata",
@@ -234,8 +232,8 @@ extension ComicManager {
         metadataObject.setValue(comic.UUID, forKey: "uuid")
         metadataObject.setValue(name, forKey: "name")
         metadataObject.setValue(false, forKey: "read")
-        metadataObject.setValue(cover, forKey: "coverImage")
         metadataObject.setValue(comic.url.absoluteString, forKey: "url")
+        metadataObject.populateCoverPage()
         return metadataObject
     }
 }
