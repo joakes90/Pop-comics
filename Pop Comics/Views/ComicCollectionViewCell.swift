@@ -10,5 +10,6 @@ import UIKit
 
 class ComicCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var coverImageView: UIImageView!
+    @IBOutlet weak var activityView: UIActivityIndicatorView!
     
 }

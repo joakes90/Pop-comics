@@ -29,7 +29,7 @@ class CoverExtractOperation: Operation {
         }
         let images  = ComicManager.openComic(at: comicURL.path)
         if let image = images?.first {
-            let data = UIImagePNGRepresentation(image)
+            let data = UIImageJPEGRepresentation(image, 0.25)
             metaData.coverImage = data
         }
         if metaData.delegate != nil {

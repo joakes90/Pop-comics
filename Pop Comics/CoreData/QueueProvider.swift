@@ -14,7 +14,6 @@ import Foundation
     @objc var coverQueue: OperationQueue {
         let queue = OperationQueue()
         queue.name = "com.oakes.popcomics.coverqueue"
-        queue.maxConcurrentOperationCount = 4
         return queue
     }
 }

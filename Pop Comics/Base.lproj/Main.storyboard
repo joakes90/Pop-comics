@@ -44,15 +44,25 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="genaricComic" translatesAutoresizingMaskIntoConstraints="NO" id="E9c-Gf-Fbm">
                                                     <rect key="frame" x="0.0" y="0.0" width="150" height="224"/>
                                                 </imageView>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="y6e-7z-h4s">
+                                                    <rect key="frame" x="55" y="92" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="IMX-br-wuY"/>
+                                                        <constraint firstAttribute="width" constant="40" id="x9E-FF-35o"/>
+                                                    </constraints>
+                                                </activityIndicatorView>
                                             </subviews>
                                         </view>
                                         <constraints>
                                             <constraint firstItem="E9c-Gf-Fbm" firstAttribute="leading" secondItem="oTa-iS-6rY" secondAttribute="leading" id="6tz-YL-RKH"/>
+                                            <constraint firstItem="y6e-7z-h4s" firstAttribute="centerX" secondItem="E9c-Gf-Fbm" secondAttribute="centerX" id="I5W-yo-udl"/>
+                                            <constraint firstItem="y6e-7z-h4s" firstAttribute="centerY" secondItem="E9c-Gf-Fbm" secondAttribute="centerY" id="O3t-ji-u4Y"/>
                                             <constraint firstAttribute="bottom" secondItem="E9c-Gf-Fbm" secondAttribute="bottom" id="UNe-yc-r7W"/>
                                             <constraint firstItem="E9c-Gf-Fbm" firstAttribute="top" secondItem="oTa-iS-6rY" secondAttribute="top" id="cAk-7K-d7a"/>
                                             <constraint firstAttribute="trailing" secondItem="E9c-Gf-Fbm" secondAttribute="trailing" id="pIM-dV-DXD"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="activityView" destination="y6e-7z-h4s" id="JGS-0l-XKr"/>
                                             <outlet property="coverImageView" destination="E9c-Gf-Fbm" id="ptC-X8-8bE"/>
                                             <segue destination="MZY-Ai-WFa" kind="presentation" identifier="presentViewer" id="rm2-WQ-0D5"/>
                                         </connections>

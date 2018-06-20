@@ -94,16 +94,20 @@ extension BrowserViewController: UICollectionViewDataSource {
         guard let metaData = comicMetadata else {
             return UICollectionViewCell()
         }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "comicCell", for: indexPath) as? ComicCollectionViewCell ?? ComicCollectionViewCell()
         let comic = metaData[indexPath.row]
         var coverImage: UIImage
         if let data = comic.coverImage,
             let dataImage = UIImage(data: data) {
             coverImage = dataImage
+            cell.activityView.isHidden = true
+            cell.activityView.stopAnimating()
         } else {
             coverImage = #imageLiteral(resourceName: "genaricComic")
+            cell.activityView.isHidden = false
+            cell.activityView.startAnimating()
             comic.populateCoverPage()
         }
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "comicCell", for: indexPath) as? ComicCollectionViewCell ?? ComicCollectionViewCell()
         cell.coverImageView.image = coverImage
         return cell
     }
@@ -118,6 +122,8 @@ extension BrowserViewController: MetadataUpdateDelegate {
             let image = UIImage(data: data)
             let cell = collectionView.cellForItem(at: IndexPath(row: cellIndex, section: 0)) as? ComicCollectionViewCell
             cell?.coverImageView.image = image
+            cell?.activityView.isHidden = true
+            cell?.activityView.stopAnimating()
         }
     }
     
