@@ -142,14 +142,14 @@ class FileController {
         return false
     }
     
-    fileprivate func coverImage(for url: URL) -> UIImage {
+    fileprivate func coverImage(for url: URL) -> UIImage? {
         if extensions(rawValue: url.pathExtension) != nil {
             guard let images = ComicManager.openComic(at: url.path) else {
-                return #imageLiteral(resourceName: "genaricComic")
+                return nil
             }
-            return images.first ?? #imageLiteral(resourceName: "genaricComic")
+            return images.first
         }
-        return #imageLiteral(resourceName: "genaricComic")
+        return nil
     }
 }
 

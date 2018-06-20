@@ -233,7 +233,6 @@ extension ComicManager {
         metadataObject.setValue(name, forKey: "name")
         metadataObject.setValue(false, forKey: "read")
         metadataObject.setValue(comic.url.absoluteString, forKey: "url")
-        metadataObject.populateCoverPage()
         return metadataObject
     }
 }

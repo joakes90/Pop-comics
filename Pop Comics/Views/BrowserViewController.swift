@@ -95,7 +95,14 @@ extension BrowserViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         let comic = metaData[indexPath.row]
-        let coverImage = UIImage(data: comic.coverImage ?? Data()) ?? #imageLiteral(resourceName: "genaricComic")
+        var coverImage: UIImage
+        if let data = comic.coverImage,
+            let dataImage = UIImage(data: data) {
+            coverImage = dataImage
+        } else {
+            coverImage = #imageLiteral(resourceName: "genaricComic")
+            comic.populateCoverPage()
+        }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "comicCell", for: indexPath) as? ComicCollectionViewCell ?? ComicCollectionViewCell()
         cell.coverImageView.image = coverImage
         return cell

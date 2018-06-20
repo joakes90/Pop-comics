@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Metadata : NSManagedObject
 
 @property (nonatomic, weak) id<MetadataUpdateDelegate> delegate;
-
+@property (nonatomic) BOOL processingCover;
 -(void) populateCoverPage;
 
 @end
@@ -23,7 +23,6 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol MetadataUpdateDelegate<NSObject>
 
 -(void) didUpdateCoverFor: (Metadata *)object;
-
 @end
 NS_ASSUME_NONNULL_END
 
