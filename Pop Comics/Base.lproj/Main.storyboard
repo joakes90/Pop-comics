@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -110,27 +109,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTj-CU-Az1">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTj-CU-Az1">
                                 <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                                 <subviews>
-                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uQz-UA-zDn">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                    <imageView autoresizesSubviews="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uQz-UA-zDn">
+                                        <rect key="frame" x="0.0" y="2" width="414" height="716"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="uQz-UA-zDn" secondAttribute="height" multiplier="375:667" id="EDD-nl-hbY"/>
-                                        </constraints>
+                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="uEn-On-QLx" appends="YES" id="ezU-57-eN8"/>
                                         </connections>
                                     </imageView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="uQz-UA-zDn" secondAttribute="bottom" id="EoV-M8-GUA"/>
-                                    <constraint firstItem="uQz-UA-zDn" firstAttribute="centerX" secondItem="DTj-CU-Az1" secondAttribute="centerX" id="Yha-vx-Rsd"/>
-                                    <constraint firstItem="uQz-UA-zDn" firstAttribute="top" secondItem="DTj-CU-Az1" secondAttribute="top" id="hdH-DV-pv8"/>
-                                    <constraint firstAttribute="trailing" secondItem="uQz-UA-zDn" secondAttribute="trailing" id="nkf-Rj-fcH"/>
-                                    <constraint firstItem="uQz-UA-zDn" firstAttribute="leading" secondItem="DTj-CU-Az1" secondAttribute="leading" id="tmp-rZ-aOu"/>
-                                </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="bfu-91-n4v" id="eLD-sX-gyz"/>
                                 </connections>
@@ -186,19 +177,16 @@
                         <constraints>
                             <constraint firstItem="afT-d2-Ef2" firstAttribute="top" secondItem="0uh-oh-dHO" secondAttribute="top" id="DhX-Yn-5h3"/>
                             <constraint firstItem="DTj-CU-Az1" firstAttribute="leading" secondItem="L9s-Ip-IaP" secondAttribute="leading" id="Mjl-7u-xUZ"/>
-                            <constraint firstItem="DTj-CU-Az1" firstAttribute="trailing" secondItem="L9s-Ip-IaP" secondAttribute="trailing" id="PtC-vc-Xrl"/>
                             <constraint firstItem="afT-d2-Ef2" firstAttribute="trailing" secondItem="L9s-Ip-IaP" secondAttribute="trailing" id="Vae-Cd-weY"/>
                             <constraint firstItem="DTj-CU-Az1" firstAttribute="trailing" secondItem="L9s-Ip-IaP" secondAttribute="trailing" id="Wlv-CD-hTh"/>
                             <constraint firstItem="DTj-CU-Az1" firstAttribute="centerX" secondItem="L9s-Ip-IaP" secondAttribute="centerX" id="bpT-zU-aYL"/>
                             <constraint firstItem="afT-d2-Ef2" firstAttribute="leading" secondItem="L9s-Ip-IaP" secondAttribute="leading" id="j4d-Iq-Kwl"/>
                             <constraint firstItem="DTj-CU-Az1" firstAttribute="top" secondItem="L9s-Ip-IaP" secondAttribute="top" id="nfc-2d-gFQ"/>
-                            <constraint firstItem="DTj-CU-Az1" firstAttribute="leading" secondItem="L9s-Ip-IaP" secondAttribute="leading" id="vvH-N1-taj"/>
                             <constraint firstItem="DTj-CU-Az1" firstAttribute="bottom" secondItem="L9s-Ip-IaP" secondAttribute="bottom" id="yRb-Ch-sUw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="L9s-Ip-IaP"/>
                     </view>
                     <connections>
-                        <outlet property="aspectRatio" destination="EDD-nl-hbY" id="GKe-4n-f4D"/>
                         <outlet property="pageImageView" destination="uQz-UA-zDn" id="oyB-Vy-3gJ"/>
                         <outlet property="pageLabel" destination="nvb-Pa-n0b" id="QqK-yq-ZZt"/>
                         <outlet property="scrollView" destination="DTj-CU-Az1" id="FLx-vB-SIo"/>

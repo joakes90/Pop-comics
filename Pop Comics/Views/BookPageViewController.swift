@@ -12,7 +12,6 @@ class BookPageViewController: UIViewController {
 
     @IBOutlet weak var pageImageView: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var aspectRatio: NSLayoutConstraint!
     @IBOutlet weak var toolBar: UIView!
     @IBOutlet weak var pageLabel: UILabel!
     
@@ -37,20 +36,10 @@ class BookPageViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let safeArea = view.safeAreaLayoutGuide.layoutFrame.size
-        updateConstraintsForSize(safeArea)
-        updateAspectRatioForSize(pageImage?.size ?? CGSize(width: 0, height: 0))
         updateMinScaleForSize(view.bounds.size)
-    }
-    fileprivate func updateAspectRatioForSize(_ size: CGSize) {
-        let ratio = size.width/size.height
-        aspectRatio.constant = ratio
-        view.layoutIfNeeded()
     }
     
     fileprivate func updateMinScaleForSize(_ size: CGSize) {
-        let safeArea = view.safeAreaLayoutGuide.layoutFrame.size
-        updateConstraintsForSize(safeArea)
         let minWidthScale = size.width / pageImageView.bounds.width
         let minHeightScale = size.height / pageImageView.bounds.height
         let minScale = min(minWidthScale, minHeightScale)
@@ -66,17 +55,11 @@ class BookPageViewController: UIViewController {
 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        let safeArea = view.safeAreaLayoutGuide.layoutFrame.size
-        updateConstraintsForSize(safeArea)
-        updateAspectRatioForSize(pageImage?.size ?? CGSize(width: 0, height: 0))
         updateMinScaleForSize(view.bounds.size)
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        let safeArea = view.safeAreaLayoutGuide.layoutFrame.size
-        updateConstraintsForSize(safeArea)
-        updateAspectRatioForSize(pageImage?.size ?? CGSize(width: 0, height: 0))
         updateMinScaleForSize(view.bounds.size)
     }
     override func didReceiveMemoryWarning() {
@@ -141,12 +124,6 @@ extension BookPageViewController: UIScrollViewDelegate {
 
     }
     
-    fileprivate func updateConstraintsForSize(_ size: CGSize) {
-        let yOffset = max(0, (size.height - pageImageView.frame.height) / 2.0)
-        let xOffset = max(0, (size.width - pageImageView.frame.width) / 2.0)
-        scrollView.contentInsetAdjustmentBehavior = .automatic
-        scrollView.contentInset = UIEdgeInsets(top: yOffset, left: xOffset, bottom: yOffset, right: xOffset)
-    }
     
     func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
         
