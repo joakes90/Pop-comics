@@ -25,6 +25,7 @@ enum extensions: String {
     case PDF
 }
 class ComicManager: NSObject {
+    static let coreDataQueue = DispatchQueue(label: "com.oakes.Pop-Comics.cdQueue")
     
     @objc static func openComic(at path: String) -> Book? {
         let url = URL(fileURLWithPath: path)
@@ -172,7 +173,6 @@ class ComicManager: NSObject {
 extension ComicManager {
     
     static func retreaveMetadata(for comics: [ComicPath], completion: @escaping (_ : [Metadata]) -> Void) {
-        let coreDataQueue = DispatchQueue(label: "com.oakes.Pop-Comics.cdQueue")
         coreDataQueue.async {
             var metaData = [Metadata]()
             for comic in comics {
@@ -193,8 +193,7 @@ extension ComicManager {
         }
     }
     
-    static func saveCDStack() {
-        let coreDataQueue = DispatchQueue(label: "com.oakes.Pop-Comics.cdQueue")
+    @objc static func saveCDStack() {
         coreDataQueue.async {
             do {
                 try CDStack.sharedInstance().managedObjectContext.save()

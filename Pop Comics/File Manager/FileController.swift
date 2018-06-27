@@ -13,6 +13,8 @@ class FileController {
     
     static let shared = FileController()
     private var paths: [ComicPath] = [ComicPath]()
+    let comicsQueue = DispatchQueue(label: "com.oakes.Pop-Comics.comicQueue")
+    let cleanDirQueue = DispatchQueue(label: "com.oakes.Pop-Comics.clean")
     
     func comicPathsBySection() -> [ComicSecton] {
         let comicPaths = retreaveComicPaths()
@@ -74,7 +76,6 @@ class FileController {
     }
     
     func comicsIn(url: URL, completion: (_ : ([ComicPath]) -> Void)) {
-        let comicsQueue = DispatchQueue(label: "com.oakes.Pop-Comics.comicQueue")
         comicsQueue.async {
             let fileManager = FileManager.default
             do {
@@ -104,7 +105,6 @@ class FileController {
     }
     
     func cleanTmp() {
-        let cleanDirQueue = DispatchQueue(label: "com.oakes.Pop-Comics.clean")
         let fileManager = FileManager.default
         let tmpDir = fileManager.temporaryDirectory
         do {
