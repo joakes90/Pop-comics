@@ -30,10 +30,32 @@ class ComicDirectoryViewControllerTableViewController: UITableViewController {
         refreshControl?.endRefreshing()
     }
 
+    func displayFirstRunLabel() {
+        let onboardLabel = UILabel()
+        onboardLabel.font = UIFont(name: "Comic Panels", size: 18)
+        onboardLabel.text = "Upload CBZ and CBR files from iTunes or copy into Pop Comics from the Files app to get started"
+        onboardLabel.textColor = .yellow
+        onboardLabel.numberOfLines = 0
+        onboardLabel.textAlignment = .center
+        tableView.backgroundView = onboardLabel
+        tableView.separatorStyle = .none
+    }
+    
+    func removeFirstRunLabel() {
+        tableView.separatorStyle = .singleLine
+        tableView.backgroundView = nil
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return sections?.count ?? 0
+        let sectionCount = sections?.count ?? 0
+        if sectionCount <= 0 {
+            displayFirstRunLabel()
+            return sectionCount
+        }
+        removeFirstRunLabel()
+        return sectionCount
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
