@@ -41,7 +41,7 @@ class ProgressView: UIView {
         frame = window.frame
         if superview != window {
             window.addSubview(self)
-            window.bringSubview(toFront: self)
+            window.bringSubviewToFront(self)
         }
         let animation = CABasicAnimation(keyPath: "opacity")
         animation.fromValue = 0
@@ -73,7 +73,7 @@ class ProgressView: UIView {
         animation.duration = Double(duration) as CFTimeInterval
         animation.isCumulative = true
         animation.repeatCount = .infinity
-        animation.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseInEaseOut)
+        animation.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
         view.layer.add(animation, forKey: "spinAnimation")
         CATransaction.commit()
     }
