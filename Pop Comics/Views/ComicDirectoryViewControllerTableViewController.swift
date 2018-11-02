@@ -58,8 +58,22 @@ class ComicDirectoryViewControllerTableViewController: UITableViewController {
         return sectionCount
     }
 
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sections?[section].letter ?? ""
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let sectionTitle = sections?[section].letter ?? ""
+        let label = UILabel(frame: CGRect(x: 10.0,
+                                          y: 8.0,
+                                          width: 320.0,
+                                          height: 20.0))
+        label.backgroundColor = UIColor.clear
+        label.textColor = UIColor.yellow
+        label.font = UIFont(name: "BadaBoom BB", size: 24.0)
+        label.text = sectionTitle
+        let view = UIView(frame: CGRect(x: 0.0,
+                                        y: 0.0,
+                                        width: 320.0,
+                                        height: 20.0))
+        view.addSubview(label)
+        return view
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -74,7 +88,7 @@ class ComicDirectoryViewControllerTableViewController: UITableViewController {
         cell.textLabel?.text = comicPath?.name ?? ""
         cell.textLabel?.font = UIFont(name: "Comic Panels", size: 14) ?? UIFont.systemFont(ofSize: 14)
         cell.textLabel?.textColor = UIColor.yellow
-        cell.backgroundColor = UIColor.darkGray
+        cell.backgroundColor = #colorLiteral(red: 0.4705882353, green: 0.1647058824, blue: 0.5058823529, alpha: 1)
         return cell
     }
 
@@ -85,6 +99,7 @@ class ComicDirectoryViewControllerTableViewController: UITableViewController {
         })
         return titles
     }
+    
     override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
         return sections?.index(where: { $0.letter == title }) ?? 0
     }
