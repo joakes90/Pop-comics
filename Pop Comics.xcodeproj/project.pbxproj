@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F9970012257CBE500BAADA1 /* Metadata+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9970002257CBE500BAADA1 /* Metadata+CoreDataClass.m */; };
+		3F9970042257CC0900BAADA1 /* Metadata+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9970032257CC0900BAADA1 /* Metadata+CoreDataProperties.m */; };
 		8A5F108E5F0C6AF073CBC263 /* Pods_Pop_Comics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A49864D09152285EDA471FB1 /* Pods_Pop_Comics.framework */; };
 		D003B820204F94DA005500AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D003B81F204F94DA005500AD /* AppDelegate.swift */; };
 		D003B825204F94DA005500AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D003B823204F94DA005500AD /* Main.storyboard */; };
@@ -22,8 +24,6 @@
 		D061F53120B11CB200A54BCB /* Comic Panels.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D061F53020B1168C00A54BCB /* Comic Panels.ttf */; };
 		D093B6F520D0A72F00C07BC7 /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D093B6F420D0A72F00C07BC7 /* PageCollectionViewCell.swift */; };
 		D093B6F720D0A7D200C07BC7 /* PagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D093B6F620D0A7D200C07BC7 /* PagesCollectionViewController.swift */; };
-		D0B7C91720D3620100038887 /* Metadata+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B7C91320D3620000038887 /* Metadata+CoreDataProperties.m */; };
-		D0B7C91820D3620100038887 /* Metadata+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B7C91520D3620000038887 /* Metadata+CoreDataClass.m */; };
 		D0BB907420ABAD5E00590A93 /* Metadata.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0BB907220ABAD5E00590A93 /* Metadata.xcdatamodeld */; };
 		D0BB908A20ABB1F200590A93 /* CDStack.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BB908920ABB1F200590A93 /* CDStack.m */; };
 		D0BB908F20ABC9CE00590A93 /* ComicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BB908E20ABC9CE00590A93 /* ComicCollectionViewCell.swift */; };
@@ -37,6 +37,10 @@
 
 /* Begin PBXFileReference section */
 		0A55C9603DDF4E4D8100F120 /* Pods-Pop Comics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pop Comics.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pop Comics/Pods-Pop Comics.debug.xcconfig"; sourceTree = "<group>"; };
+		3F996FFF2257CBD100BAADA1 /* Metadata+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Metadata+CoreDataClass.h"; sourceTree = "<group>"; };
+		3F9970002257CBE500BAADA1 /* Metadata+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Metadata+CoreDataClass.m"; sourceTree = "<group>"; };
+		3F9970022257CBFD00BAADA1 /* Metadata+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Metadata+CoreDataProperties.h"; sourceTree = "<group>"; };
+		3F9970032257CC0900BAADA1 /* Metadata+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Metadata+CoreDataProperties.m"; sourceTree = "<group>"; };
 		88C301B021AF80F9971AD990 /* Pods-Pop Comics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pop Comics.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pop Comics/Pods-Pop Comics.release.xcconfig"; sourceTree = "<group>"; };
 		A49864D09152285EDA471FB1 /* Pods_Pop_Comics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pop_Comics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D003B81C204F94DA005500AD /* Pop Comics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pop Comics.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,10 +59,6 @@
 		D061F53020B1168C00A54BCB /* Comic Panels.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comic Panels.ttf"; sourceTree = "<group>"; };
 		D093B6F420D0A72F00C07BC7 /* PageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCollectionViewCell.swift; sourceTree = "<group>"; };
 		D093B6F620D0A7D200C07BC7 /* PagesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagesCollectionViewController.swift; sourceTree = "<group>"; };
-		D0B7C91320D3620000038887 /* Metadata+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "Metadata+CoreDataProperties.m"; path = "/Users/justin/Development/Apple/Pop Comics/Pop Comics/CoreData/Metadata+CoreDataProperties.m"; sourceTree = "<absolute>"; };
-		D0B7C91420D3620000038887 /* Metadata+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Metadata+CoreDataClass.h"; path = "/Users/justin/Development/Apple/Pop Comics/Pop Comics/CoreData/Metadata+CoreDataClass.h"; sourceTree = "<absolute>"; };
-		D0B7C91520D3620000038887 /* Metadata+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "Metadata+CoreDataClass.m"; path = "/Users/justin/Development/Apple/Pop Comics/Pop Comics/CoreData/Metadata+CoreDataClass.m"; sourceTree = "<absolute>"; };
-		D0B7C91620D3620100038887 /* Metadata+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Metadata+CoreDataProperties.h"; path = "/Users/justin/Development/Apple/Pop Comics/Pop Comics/CoreData/Metadata+CoreDataProperties.h"; sourceTree = "<absolute>"; };
 		D0BB907320ABAD5E00590A93 /* Metadata.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Metadata.xcdatamodel; sourceTree = "<group>"; };
 		D0BB908820ABB1A100590A93 /* CDStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDStack.h; sourceTree = "<group>"; };
 		D0BB908920ABB1F200590A93 /* CDStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDStack.m; sourceTree = "<group>"; };
@@ -150,10 +150,10 @@
 		D0BB908720ABB15700590A93 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				D0B7C91420D3620000038887 /* Metadata+CoreDataClass.h */,
-				D0B7C91520D3620000038887 /* Metadata+CoreDataClass.m */,
-				D0B7C91620D3620100038887 /* Metadata+CoreDataProperties.h */,
-				D0B7C91320D3620000038887 /* Metadata+CoreDataProperties.m */,
+				3F996FFF2257CBD100BAADA1 /* Metadata+CoreDataClass.h */,
+				3F9970002257CBE500BAADA1 /* Metadata+CoreDataClass.m */,
+				3F9970022257CBFD00BAADA1 /* Metadata+CoreDataProperties.h */,
+				3F9970032257CC0900BAADA1 /* Metadata+CoreDataProperties.m */,
 				D0BB908820ABB1A100590A93 /* CDStack.h */,
 				D0BB908920ABB1F200590A93 /* CDStack.m */,
 				D0C323D320D9D14F0034B1E1 /* CoverExtractOperation.swift */,
@@ -208,7 +208,6 @@
 				D003B819204F94DA005500AD /* Frameworks */,
 				D003B81A204F94DA005500AD /* Resources */,
 				7F84DD5F055A6CE981DB2D6D /* [CP] Embed Pods Frameworks */,
-				D4D08E9DDF7152E9441B94ED /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -226,12 +225,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Oklasoft LLC";
 				TargetAttributes = {
 					D003B81B204F94DA005500AD = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -311,21 +310,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pop Comics/Pods-Pop Comics-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D4D08E9DDF7152E9441B94ED /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pop Comics/Pods-Pop Comics-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -333,19 +317,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F9970012257CBE500BAADA1 /* Metadata+CoreDataClass.m in Sources */,
 				D0BB908F20ABC9CE00590A93 /* ComicCollectionViewCell.swift in Sources */,
 				D0C323DA20D9EA5E0034B1E1 /* QueueProvider.swift in Sources */,
 				D03D790B20B4ED7A00C5EDF1 /* BrowserViewController.swift in Sources */,
 				D0BB908A20ABB1F200590A93 /* CDStack.m in Sources */,
 				D003B820204F94DA005500AD /* AppDelegate.swift in Sources */,
-				D0B7C91720D3620100038887 /* Metadata+CoreDataProperties.m in Sources */,
 				D0D4364D20A7E2DD00A18713 /* ComicDirectoryViewControllerTableViewController.swift in Sources */,
 				D033677A20D2006600E37E55 /* SplitViewController.swift in Sources */,
 				D054FA5A20C366E700A7BA37 /* BookPageViewController.swift in Sources */,
 				D003B837204F9752005500AD /* ComicManager.swift in Sources */,
 				D061F52C20B10F5200A54BCB /* AppearanceManager.swift in Sources */,
+				3F9970042257CC0900BAADA1 /* Metadata+CoreDataProperties.m in Sources */,
 				D0E4B5CC20BB625200C1A2F3 /* ProgressView.swift in Sources */,
-				D0B7C91820D3620100038887 /* Metadata+CoreDataClass.m in Sources */,
 				D093B6F520D0A72F00C07BC7 /* PageCollectionViewCell.swift in Sources */,
 				D054FA5C20C3684A00A7BA37 /* BookViewController.swift in Sources */,
 				D0BB907420ABAD5E00590A93 /* Metadata.xcdatamodeld in Sources */,
@@ -391,6 +375,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -398,6 +383,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -448,6 +434,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -455,6 +442,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -488,15 +476,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0A55C9603DDF4E4D8100F120 /* Pods-Pop Comics.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CDP7Y4YU55;
 				INFOPLIST_FILE = "Pop Comics/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.oakes.Pop-Comics";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Pop Comics/Pop-Comics-BridgingHeader.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -505,15 +495,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 88C301B021AF80F9971AD990 /* Pods-Pop Comics.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CDP7Y4YU55;
 				INFOPLIST_FILE = "Pop Comics/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.oakes.Pop-Comics";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Pop Comics/Pop-Comics-BridgingHeader.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

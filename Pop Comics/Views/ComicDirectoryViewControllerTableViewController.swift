@@ -101,7 +101,7 @@ class ComicDirectoryViewControllerTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
-        return sections?.index(where: { $0.letter == title }) ?? 0
+        return sections?.firstIndex(where: { $0.letter == title }) ?? 0
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -40,7 +40,7 @@ class BookViewController: UIPageViewController, UIPageViewControllerDataSource, 
         bookViewControllers = ComicManager.pageViewControllers(for: book ?? Book())
         bookViewControllers?.forEach({ (viewController) in
             viewController.delegate = self
-            let currentIndex = bookViewControllers?.index(of: viewController)
+            let currentIndex = bookViewControllers?.firstIndex(of: viewController)
             viewController.pageNumber = (currentIndex ?? 0) + 1
             viewController.totalPages = bookViewControllers?.count
             viewController.bookViewController = self
@@ -69,7 +69,7 @@ class BookViewController: UIPageViewController, UIPageViewControllerDataSource, 
         }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        let currentIndex = bookViewControllers?.index(of: viewController as? BookPageViewController ?? BookPageViewController()) ?? 0
+        let currentIndex = bookViewControllers?.firstIndex(of: viewController as? BookPageViewController ?? BookPageViewController()) ?? 0
         if currentIndex >= (bookViewControllers?.count ?? 999) - 1 {
             return nil
         }
@@ -77,7 +77,7 @@ class BookViewController: UIPageViewController, UIPageViewControllerDataSource, 
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        let currentIndex = bookViewControllers?.index(of: viewController as? BookPageViewController ?? BookPageViewController()) ?? 0
+        let currentIndex = bookViewControllers?.firstIndex(of: viewController as? BookPageViewController ?? BookPageViewController()) ?? 0
         if currentIndex <= 0 {
             return nil
         }

@@ -117,7 +117,7 @@ extension BrowserViewController: UICollectionViewDataSource {
 extension BrowserViewController: MetadataUpdateDelegate {
     
     func didUpdateCover(for object: Metadata) {
-        if let cellIndex = comicMetadata?.index(of: object),
+        if let cellIndex = comicMetadata?.firstIndex(of: object),
             let data = object.coverImage {
             let image = UIImage(data: data)
             let cell = collectionView.cellForItem(at: IndexPath(row: cellIndex, section: 0)) as? ComicCollectionViewCell

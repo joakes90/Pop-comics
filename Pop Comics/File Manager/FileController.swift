@@ -22,7 +22,7 @@ class FileController {
         
         for path in comicPaths {
             let firstLetter = String(path.name.first ?? "A").uppercased()
-            if let index = sections.index(where: { $0.letter == firstLetter}) {
+            if let index = sections.firstIndex(where: { $0.letter == firstLetter}) {
                 sections[index].comicPaths.append(path)
             } else {
                 let section = ComicSecton(letter: firstLetter, comicPaths: [path])
